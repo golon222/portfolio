@@ -117,24 +117,86 @@ nav a:hover {
 }
 
 
+@media (max-width: 768px) {
+
+    nav a {
+        font-size: 0; 
+        position: relative; 
+    }
 
 
+    nav a:nth-child(1)::before {
+        content: '\f015'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+    }
+    nav a:nth-child(2)::before {
+        content: '\f129'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+    }
+    nav a:nth-child(3)::before {
+        content: '\f0ae'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+    }
+    nav a:nth-child(4)::before {
+        content: '\f0e0'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+    }
+
+    nav a::before {
+        display: block;
+        font-size: 24px;
+        text-align: center;
+        color: #ff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+ .container {
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
+
+    .spis1, .spis {
+        padding: 20px; /* Reduced padding for smaller screens */
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .spis1 h3, .spis h3 {
+        font-size: 24px; /* Adjusted font size for section headings */
+    }
+
+    .spis1 button {
+        padding: 8px 16px; /* Adjusted padding for buttons */
+        font-size: 14px; /* Adjusted font size for buttons */
+    }
+
+    .spis img {
+        width: 100%; /* Ensure images take full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    p1 {
+        display: block; /* Ensures <p1> is displayed properly */
+        margin: 10px 0; /* Adjusted margin for spacing */
+        font-size: 14px; /* Adjusted font size for text */
+    }
+
+    footer {
+        font-size: 12px; /* Adjusted font size for footer text */
+        text-align: center; /* Center text for footer */
+        padding: 10px 0; /* Added padding for footer */
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 #scrollToTop {
