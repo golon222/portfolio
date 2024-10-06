@@ -15,7 +15,7 @@ nav {
     padding: 15px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: static; 
-    z-index: 10; /* Upewnij się, że jest na wierzchu innych elementów */
+    z-index: 10; 
 }
 
 nav a {
@@ -112,16 +112,16 @@ li{
     padding: 20px 0;
     margin-bottom: 15px;
     position: relative;
-    height: 100px; /* Stała wysokość kafelka */
+    height: 100px; 
 }
 
 .dates {
     width: 180px;
     text-align: center;
     white-space: nowrap;
-    display: flex;  /* Dodane */
-    justify-content: right;  /* Wyśrodkowanie poziome */
-    align-items: center;  /* Wyśrodkowanie pionowe */
+    display: flex;  
+    justify-content: right;  
+    align-items: center; 
     padding-left: 40px;
     padding-right: 40px;
 }
@@ -130,10 +130,10 @@ li{
     border-left: 2px solid #FFF;
     padding-left: 40px;
     flex-grow: 1;
-    text-align: center; /* Wyśrodkowanie tekstu */
+    text-align: center; 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Wyśrodkowanie pionowe */
+    justify-content: center; 
 }
 
 .job-title {
@@ -166,41 +166,131 @@ footer p {
 
 #scrollToTop {
 
-    bottom: 50px; /* Odległość od dolnej krawędzi strony */
-    right: 20px; /* Odległość od prawej krawędzi strony */
-    background-color: #b8ad14; /* Kolor tła przycisku */
-    color: white; /* Kolor tekstu */
-    border: none; /* Brak obramowania */
-    padding: 10px 15px; /* Padding wewnętrzny */
-    border-radius: 50px; /* Zaokrąglenie rogów */
-    cursor: pointer; /* Wskazanie, że element jest interaktywny */
+    bottom: 50px;
+    right: 20px; 
+    background-color: #b8ad14; 
+    color: white; 
+    border: none;
+    padding: 10px 15px; 
+    border-radius: 50px; 
+    cursor: pointer; 
 
 }
 
 #scrollToTop:hover {
-    background-color: #a59f0c; /* Kolor przycisku po najechaniu */
+    background-color: #a59f0c; 
 }
 
 
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
+
+    nav a {
+        font-size: 0; 
+        position: relative; 
     }
-    
+
+
+    nav a:nth-child(1)::before {
+        content: '\f015'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+    }
+    nav a:nth-child(2)::before {
+        content: '\f129'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+    }
+    nav a:nth-child(3)::before {
+        content: '\f0ae'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+    }
+    nav a:nth-child(4)::before {
+        content: '\f0e0'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+    }
+
+    nav a::before {
+        display: block;
+        font-size: 24px;
+        text-align: center;
+        color: #ff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .profile {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .profile img {
+        max-width: 150px; 
+        margin-bottom: 10px;
+    }
+
+    .profile h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .profile p {
+        font-size: 16px;
+        padding: 0 10px;
+        text-align: justify;
+    }
+
+    .experience {
+        width: 100%;
+        padding: 15px;
+    }
+
     .job {
-        flex-direction: column;
+        flex-direction: column; 
+        align-items: flex-start;
+        height: auto; 
     }
 
     .dates {
-        text-align: left;
-        width: 100%;
+        text-align: left; 
+        padding: 0;
+        margin-bottom: 10px;
+        width: 100%; 
     }
 
     .details {
         padding-left: 0;
         border-left: none;
+        text-align: left;
     }
+
+
+    .skills {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .skills li {
+        margin-left: 20px;
+    }
+
+    footer {
+        font-size: 12px; 
+        text-align: center;
+        padding: 10px 0;
+    }
+
+
+
 }
-
-
-
