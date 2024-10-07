@@ -107,13 +107,13 @@ nav a:hover {
 
 
 .spis a {
-    color: #b8ad14; /* Nowy kolor linków */
-    text-decoration: none; /* Usuwa podkreślenie */
+    color: #b8ad14; 
+    text-decoration: none; 
 }
 
 .spis a:hover {
-    color: #a59f0c; /* Kolor linku po najechaniu myszką */
-    text-decoration: underline; /* Możesz dodać podkreślenie po najechaniu */
+    color: #a59f0c; 
+    text-decoration: underline; 
 }
 
 
@@ -161,38 +161,38 @@ nav a:hover {
         transform: translate(-50%, -50%);
     }
  .container {
-        padding: 10px; /* Reduced padding for smaller screens */
+        padding: 10px; 
     }
 
     .spis1, .spis {
-        padding: 20px; /* Reduced padding for smaller screens */
-        width: 100%; /* Full width on smaller screens */
+        padding: 20px;
+        width: 100%; 
     }
 
     .spis1 h3, .spis h3 {
-        font-size: 24px; /* Adjusted font size for section headings */
+        font-size: 24px; 
     }
 
     .spis1 button {
-        padding: 8px 16px; /* Adjusted padding for buttons */
-        font-size: 14px; /* Adjusted font size for buttons */
+        padding: 8px 16px; 
+        font-size: 14px; 
     }
 
     .spis img {
-        width: 100%; /* Ensure images take full width */
-        height: auto; /* Maintain aspect ratio */
+        width: 100%; 
+        height: auto; 
     }
 
     p1 {
-        display: block; /* Ensures <p1> is displayed properly */
-        margin: 10px 0; /* Adjusted margin for spacing */
-        font-size: 14px; /* Adjusted font size for text */
+        display: block; 
+        margin: 10px 0; 
+        font-size: 14px; 
     }
 
     footer {
-        font-size: 12px; /* Adjusted font size for footer text */
-        text-align: center; /* Center text for footer */
-        padding: 10px 0; /* Added padding for footer */
+        font-size: 12px; 
+        text-align: center; 
+        padding: 10px 0; 
     }
 
 
@@ -201,19 +201,19 @@ nav a:hover {
 
 #scrollToTop {
 
-    bottom: 50px; /* Odległość od dolnej krawędzi strony */
-    right: 20px; /* Odległość od prawej krawędzi strony */
-    background-color: #b8ad14; /* Kolor tła przycisku */
-    color: white; /* Kolor tekstu */
-    border: none; /* Brak obramowania */
-    padding: 10px 15px; /* Padding wewnętrzny */
-    border-radius: 50px; /* Zaokrąglenie rogów */
-    cursor: pointer; /* Wskazanie, że element jest interaktywny */
+    bottom: 50px; 
+    right: 20px; 
+    background-color: #b8ad14; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 50px; 
+    cursor: pointer;
 
 }
 
 #scrollToTop:hover {
-    background-color: #a59f0c; /* Kolor przycisku po najechaniu */
+    background-color: #a59f0c;
 }
 
 
