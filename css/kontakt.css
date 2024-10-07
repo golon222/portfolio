@@ -31,13 +31,13 @@ nav a:hover {
     color: #b8ad14;
 }
 .contact a {
-    color: #b8ad14; /* Nowy kolor linków */
-    text-decoration: none; /* Usuwa podkreślenie */
+    color: #b8ad14; 
+    text-decoration: none; 
 }
 
 .contact a:hover {
-    color: #a59f0c; /* Kolor linku po najechaniu myszką */
-    text-decoration: underline; /* Możesz dodać podkreślenie po najechaniu */
+    color: #a59f0c;
+    text-decoration: underline; 
 }
 
 .contact h3 {
@@ -60,7 +60,7 @@ nav a:hover {
 
 .send input,
 .send textarea {
-    width: 75%; /* Szerokość 100% w kontenerze */
+    width: 75%; 
     padding: 8px;
     margin-bottom: 20px;
     border: 2px solid #b8ad14;
@@ -68,12 +68,12 @@ nav a:hover {
     background-color: #1F1F1F;
     color: #FFF;
     font-size: 16px;
-    display: block; /* Żeby inputy nie były w jednej linii */
-    box-sizing: border-box; /* Upewnij się, że padding i szerokość są poprawnie liczone */
+    display: block;
+    box-sizing: border-box; 
 }
 
 .send textarea {
-    resize: none; /* Blokada powiększania textarea */
+    resize: none; 
 }
 
 .send button {
@@ -121,13 +121,13 @@ nav a:hover {
 }
 
 .send form {
-    width: 100%; /* Upewnij się, że formularz zajmuje pełną szerokość kontenera */
+    width: 100%;  
 }
 
 .send div {
     display: flex;
-    justify-content: center; /* Wyśrodkowanie pól formularza */
-    width: 100%; /* Dodaj, aby pola były w pełnej szerokości formularza */
+    justify-content: center; 
+    width: 100%; 
 }
 
 footer {
@@ -144,19 +144,19 @@ footer p {
 
 #scrollToTop {
 
-    bottom: 50px; /* Odległość od dolnej krawędzi strony */
-    right: 20px; /* Odległość od prawej krawędzi strony */
-    background-color: #b8ad14; /* Kolor tła przycisku */
-    color: white; /* Kolor tekstu */
-    border: none; /* Brak obramowania */
-    padding: 10px 15px; /* Padding wewnętrzny */
-    border-radius: 50px; /* Zaokrąglenie rogów */
-    cursor: pointer; /* Wskazanie, że element jest interaktywny */
+    bottom: 50px; 
+    right: 20px; 
+    background-color: #b8ad14; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 50px; 
+    cursor: pointer; 
 
 }
 
 #scrollToTop:hover {
-    background-color: #a59f0c; /* Kolor przycisku po najechaniu */
+    background-color: #a59f0c; 
 }
 
 @media (max-width: 768px) {
@@ -214,24 +214,24 @@ footer p {
     }
 
     .contact h3 {
-        font-size: 24px; /* Zmniejszenie czcionki dla nagłówka */
+        font-size: 24px; 
     }
 
     .contact p, .send label {
-        font-size: 16px; /* Zmniejszenie czcionki dla tekstu */
+        font-size: 16px; 
     }
 
     .send input,
     .send textarea {
-        width: 100%; /* Upewnij się, że inputy zajmują 100% szerokości */
+        width: 100%; 
     }
 
     .send button {
-        width: 100%; /* Upewnij się, że przycisk zajmuje 100% szerokości */
+        width: 100%; 
     }
     footer {
-        font-size: 12px; /* Adjusted font size for footer text */
-        text-align: center; /* Center text for footer */
-        padding: 10px 0; /* Added padding for footer */
+        font-size: 12px;
+        text-align: center; 
+        padding: 10px 0; 
     }
 }
