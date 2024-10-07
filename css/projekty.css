@@ -73,6 +73,7 @@ nav a:hover {
 
 
 .spis1 button {
+    flex: 1;
     align-items: center;
     background-color: #b8ad14;
     color: #FFF;
