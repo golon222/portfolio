@@ -186,7 +186,7 @@ footer p {
 @media (max-width: 768px) {
 
     nav {
-        padding: 100px 0;
+        padding: 30px 0;
     }
     nav a {
         font-size: 0; 
