@@ -160,7 +160,9 @@ footer p {
 }
 
 @media (max-width: 768px) {
-
+    nav {
+        padding: 25px 0;
+    }
     nav a {
         font-size: 0; 
         position: relative; 
@@ -171,25 +173,25 @@ footer p {
         content: '\f015'; 
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
-        font-size: 24px;
+        font-size: 26px;
     }
     nav a:nth-child(2)::before {
         content: '\f129'; 
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
-        font-size: 24px;
+        font-size: 26px;
     }
     nav a:nth-child(3)::before {
         content: '\f0ae'; 
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
-        font-size: 24px;
+        font-size: 26px;
     }
     nav a:nth-child(4)::before {
         content: '\f0e0'; 
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
-        font-size: 24px;
+        font-size: 26px;
     }
 
     nav a::before {
