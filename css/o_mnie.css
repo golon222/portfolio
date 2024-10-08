@@ -272,6 +272,7 @@ footer p {
         text-align: left; 
         padding: 5px 0;
         margin-bottom: 10px;
+        border-bottom: 2px solid #FFF;
     }
 
     .details {
