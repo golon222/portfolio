@@ -195,7 +195,7 @@ footer p {
     z-index: 10; 
         font-size: 0; 
         position: relative; 
-        margin-right: 10px;
+        gap: 10px;
     }
 
 
@@ -222,7 +222,6 @@ footer p {
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
         font-size: 24px;
-        margin-right: 0px;
     }
 
     nav a::before {
