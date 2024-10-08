@@ -216,9 +216,12 @@ footer p {
     
     .contact input,
     .contact textarea {
-        width: 100%; 
+        width: 95%; 
     }
-
+    
+    .contact button {
+    width: 50%;
+    
     footer {
         font-size: 12px;
         text-align: center; 
