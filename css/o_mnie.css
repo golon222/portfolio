@@ -197,21 +197,21 @@ footer p {
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
         font-size: 24px;
-        margin-right: 10px;
+        margin-right: 20px;
     }
     nav a:nth-child(2)::before {
         content: '\f129'; 
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
         font-size: 24px;
-        margin-right: 10px;
+        margin-right: 20px;
     }
     nav a:nth-child(3)::before {
         content: '\f0ae'; 
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
         font-size: 24px;
-        margin-right: 10px;
+        margin-right: 20px;
     }
     nav a:nth-child(4)::before {
         content: '\f0e0'; 
