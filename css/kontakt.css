@@ -223,7 +223,8 @@ footer p {
         font-size: 16px; 
     }
     .send {
-        width: 95%
+        width: 90%;
+        padding: 20;
     }
     .send input,
     .send textarea {
