@@ -184,7 +184,11 @@ footer p {
 
 
 @media (max-width: 768px) {
-        
+
+    nav {
+        padding: 15px 0;
+        justify-content: space-between;
+    }
     nav a {
         font-size: 0; 
         position: relative;
