@@ -108,30 +108,28 @@ li{
 
 .job {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 20px 0;
     margin-bottom: 15px;
     position: relative;
-    height: 100px; 
+    height: auto; 
 }
 
 .dates {
-    width: 180px;
+    width: 200px;
     text-align: center;
     white-space: nowrap;
     display: flex;  
-    justify-content: right;  
+    justify-content: center;  
     align-items: center; 
-    padding-left: 40px;
-    padding-right: 40px;
 }
 
 .details {
     border-left: 2px solid #FFF;
-    padding-left: 40px;
+    padding-left: 20px;
     flex-grow: 1;
-    text-align: center; 
+    text-align: left; 
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -140,6 +138,8 @@ li{
 .job-title {
     font-weight: bold;
     color: #b8ad14;
+margin-bottom: 5px;
+
 }
 
 .skills {
@@ -263,23 +263,39 @@ footer p {
     .job {
         flex-direction: column; 
         align-items: flex-start;
-        height: auto; 
+        padding: 10px 0;
+        margin-bottom: 20 px;
     }
 
     .dates {
+        width: 100%;
         text-align: left; 
-        padding: 0;
+        padding: 5px 0;
         margin-bottom: 10px;
-        width: 100%; 
     }
 
     .details {
         padding-left: 0;
         border-left: none;
         text-align: left;
+        width: 100%;
     }
 
+    .experience h3 {
+        font-size: 22px;
+    }
 
+    .job-title {
+        font-size: 18px; 
+    }
+
+    .details div, .dates {
+        font-size: 16px; 
+    }
+
+    li {
+        margin-left: 20px;  
+    }
     .skills {
         width: 90%;
         padding: 20px;
