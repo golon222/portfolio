@@ -188,6 +188,7 @@ footer p {
     nav a {
         font-size: 0; 
         position: relative; 
+        padding: 15px 0;
     }
 
 
