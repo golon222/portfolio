@@ -51,15 +51,15 @@ nav a:hover {
     font-size: 18px;
 }
 
-.send label {
+.contact label {
     font-size: 16px;
     margin: 10px 0;
     display: block;
     text-align: left;
 }
 
-.send input,
-.send textarea {
+.contact input,
+.contact textarea {
     width: 75%; 
     padding: 8px;
     margin-bottom: 20px;
@@ -72,11 +72,11 @@ nav a:hover {
     box-sizing: border-box; 
 }
 
-.send textarea {
+.contact textarea {
     resize: none; 
 }
 
-.send button {
+.contact button {
     background-color: #b8ad14;
     color: #FFF;
     border: none;
@@ -86,7 +86,7 @@ nav a:hover {
     cursor: pointer;
 }
 
-.send button:hover {
+.contact button:hover {
     background-color: #a59f0c;
 }
 
@@ -107,24 +107,14 @@ nav a:hover {
     background-color: #2c2c2c;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 92.5%;
+    width: 95%;
 }
 
-.send {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    background-color: #2c2c2c;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 92.5%;
-}
-
-.send form {
+.contact form {
     width: 100%;  
 }
 
-.send div {
+.contact div {
     display: flex;
     justify-content: center; 
     width: 100%; 
@@ -222,16 +212,14 @@ footer p {
     .contact p, .send label {
         font-size: 16px; 
     }
-    .send {
-        width: 90%;
-        padding: 20;
-    }
-    .send input,
-    .send textarea {
+    
+    
+    .contact input,
+    .contact textarea {
         width: 100%; 
     }
 
-    .send button {
+    .contact button {
         width: 100%; 
     }
     footer {
