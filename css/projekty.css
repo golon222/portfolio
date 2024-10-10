@@ -212,7 +212,7 @@ nav a:hover {
     color: white; 
     border: none; 
     padding: 10px 15px; 
-    border-radius: 50px; 
+    border-radius: 100px; 
     cursor: pointer;
 
 }
