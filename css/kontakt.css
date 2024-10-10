@@ -107,15 +107,11 @@ nav a:hover {
     display: block;
     resize: none; 
 }
- #message {
-    padding-left: 10px;
-    padding-right: 10px;
+ .message {
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
- #message {
-    padding-left: 10px;
-    padding-right: 10px;
-}
 
 .contact button {
     background-color: #b8ad14;
