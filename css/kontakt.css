@@ -74,7 +74,8 @@ nav a:hover {
 
 .contact textarea {
     width: 100%; 
-    max-width: 500px;
+    max-width: 480px;
+    max-height: 240px;
     padding: 8px;
     margin-bottom: 20px;
     border: 2px solid #b8ad14;
@@ -83,10 +84,6 @@ nav a:hover {
     color: #FFF;
     font-size: 16px;
     display: block;
-    box-sizing: border-box; 
-}
-
-.contact textarea {
     resize: none; 
 }
 
