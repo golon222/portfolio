@@ -208,11 +208,12 @@ nav a:hover {
 
     bottom: 50px; 
     right: 20px; 
+    aspect-ratio: 1 / 1;
     background-color: #b8ad14; 
     color: white; 
     border: none; 
     padding: 10px 15px; 
-    border-radius: 100px; 
+    border-radius: 50px; 
     cursor: pointer;
 
 }
