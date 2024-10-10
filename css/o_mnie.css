@@ -105,6 +105,10 @@ li{
     margin-left: 40px;
     padding: 4px 0;
 }
+experience li{
+    margin-left: 10px;
+    padding: 4px 0;
+}
 
 .job {
     display: flex;
