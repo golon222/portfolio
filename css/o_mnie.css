@@ -108,7 +108,7 @@ li{
 
 .job {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 20px 0;
     margin-bottom: 15px;
