@@ -59,7 +59,8 @@ nav a:hover {
 }
 
 .contact input{
-    width: 35%; 
+    width: 100%;
+    max-width: 120px;
     padding: 8px;
     margin-bottom: 20px;
     border: 2px solid #b8ad14;
@@ -72,7 +73,8 @@ nav a:hover {
 }
 
 .contact textarea {
-    width: 50%; 
+    width: 100%; 
+    max-width: 200px;
     padding: 8px;
     margin-bottom: 20px;
     border: 2px solid #b8ad14;
