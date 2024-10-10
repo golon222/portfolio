@@ -306,6 +306,10 @@ footer p {
     li {
         margin-left: 20px;  
     }
+    .experience li{
+    margin-right: 0px;
+    margin-left: 20px;
+}
     .skills {
         width: 90%;
         padding: 20px;
