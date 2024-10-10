@@ -170,6 +170,7 @@ footer p {
 
     bottom: 50px;
     right: 20px; 
+    aspect-ratio: 1 / 1;
     background-color: #b8ad14; 
     color: white; 
     border: none;
