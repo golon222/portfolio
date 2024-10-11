@@ -189,11 +189,12 @@ footer p {
 }
 
 button {
+    display: flex;
+    justify-content: center;
     max-width: 150px;
     background-color: #b8ad14;
     color: #FFF;
     border: none;
-    justify-content: center;
     padding: 10px 20px;
     border-radius: 15px;
     transition: background-color 0.3s;
