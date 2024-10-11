@@ -189,8 +189,6 @@ footer p {
 }
 
 button {
-    display: flex;
-    justify-content: center;
     max-width: 150px;
     background-color: #b8ad14;
     color: #FFF;
@@ -234,7 +232,7 @@ button:hover {
     top: 10px;
     right: 20px;
     color: #b8ad14;
-    font-size: 30px;
+    font-size: 34px;
     cursor: pointer;
 }
 
