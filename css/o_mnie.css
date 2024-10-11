@@ -188,16 +188,30 @@ footer p {
     background-color: #a59f0c; 
 }
 
-/* Ukryty modal */
+button {
+    margin-left: 20px;
+    background-color: #b8ad14;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+.spis1 button:hover {
+    background-color: #a59f0c;
+    transform: translateY(-3px);
+}
+
 .modal {
-    display: none; /* Ukryty domyślnie */
-    position: fixed; /* Modal wyśrodkowany na ekranie */
-    z-index: 100; /* Na górze */
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
     left: 0;
     top: 0;
-    width: 100%; /* Pełna szerokość */
-    height: 100%; /* Pełna wysokość */
-    background-color: rgba(0, 0, 0, 0.7); /* Półprzezroczyste tło */
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.7); 
     justify-content: center;
     align-items: center;
 }
