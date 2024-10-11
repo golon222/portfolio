@@ -198,7 +198,7 @@ button {
     transition: background-color 0.3s;
     cursor: pointer;
 }
-.spis1 button:hover {
+button:hover {
     background-color: #a59f0c;
     transform: translateY(-3px);
 }
