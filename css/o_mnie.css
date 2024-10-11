@@ -14,7 +14,7 @@ nav {
     justify-content: center;
     padding: 15px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: static; 
+    position: absolute; 
     z-index: 10; 
 }
 
@@ -193,6 +193,7 @@ button {
     background-color: #b8ad14;
     color: #FFF;
     border: none;
+    justify-content: center;
     padding: 10px 20px;
     border-radius: 15px;
     transition: background-color 0.3s;
