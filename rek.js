@@ -3,6 +3,7 @@ const btn = document.getElementById('openModalBtn');
 const closeBtn = document.getElementsByClassName('close')[0];
 
 btn.onclick = function() {
+    event.preventDefault();
     modal.style.display = 'flex'; 
 };
 
