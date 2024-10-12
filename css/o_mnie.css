@@ -238,16 +238,16 @@ button:hover {
     top: 10px;
     right: 20px;
     color: #b8ad14;
-    font-size: 34px;
+    font-size: 40px;
     cursor: pointer;
 }
 
-.experience a {
+.skills a {
     color: #b8ad14; 
     text-decoration: none; 
 }
 
-.experience a:hover {
+.skills a:hover {
     color: #a59f0c; 
     text-decoration: underline; 
 }
