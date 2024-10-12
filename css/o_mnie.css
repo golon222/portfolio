@@ -242,12 +242,12 @@ button:hover {
     cursor: pointer;
 }
 
-.modal a {
+.experience a {
     color: #b8ad14; 
     text-decoration: none; 
 }
 
-.modal a:hover {
+.experience a:hover {
     color: #a59f0c; 
     text-decoration: underline; 
 }
