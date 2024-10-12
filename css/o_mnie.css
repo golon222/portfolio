@@ -226,6 +226,11 @@ button:hover {
     max-width: 600px;
     width: 80%;
 }
+.modal-img  {
+    max-width: 100%;  
+    height: auto;   
+    display: block;   
+}
 
 .close {
     position: absolute;
