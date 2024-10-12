@@ -12,6 +12,11 @@ closeBtn.onclick = function() {
     modal.style.display = 'none';
 };
 
+btn.onclick = openModal;
+link.onclick = openModal;
+
+closeBtn.onclick = closeModal;
+
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = 'none';
