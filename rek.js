@@ -2,7 +2,7 @@ const modal = document.getElementById('myModal');
 const btn = document.getElementById('openModalBtn');
 const closeBtn = document.getElementsByClassName('close')[0];
 
-btn.onclick = function() {
+btn.onclick = function(event) {
     event.preventDefault();
     modal.style.display = 'flex'; 
 };
