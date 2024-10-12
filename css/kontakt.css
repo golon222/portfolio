@@ -125,6 +125,7 @@ nav a:hover {
 
 .contact button:hover {
     background-color: #a59f0c;
+    transform: translateY(-3px);
 }
 
 .contact form {
@@ -164,7 +165,8 @@ footer p {
 }
 
 #scrollToTop:hover {
-    background-color: #a59f0c; 
+    background-color: #a59f0c;
+    transform: translateY(-3px);
 }
 
 @media (max-width: 768px) {
