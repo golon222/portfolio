@@ -186,6 +186,7 @@ footer p {
 
 #scrollToTop:hover {
     background-color: #a59f0c; 
+    transform: translateY(-3px); 
 }
 
 button {
