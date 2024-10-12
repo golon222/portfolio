@@ -242,6 +242,24 @@ button:hover {
     cursor: pointer;
 }
 
+a#openModalBtn {
+    display: inline-block; 
+    max-width: 150px;
+    background-color: #b8ad14;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+a#openModalBtn:hover {
+    background-color: #a59f0c;
+    transform: translateY(-3px);
+}
+
 
 @media (max-width: 768px) {
 
