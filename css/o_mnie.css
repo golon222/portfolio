@@ -236,7 +236,7 @@ button:hover {
 .close {
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 30px;
     color: #b8ad14;
     font-size: 40px;
     cursor: pointer;
