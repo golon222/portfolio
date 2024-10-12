@@ -118,6 +118,61 @@ nav a:hover {
     text-decoration: underline; 
 }
 
+.slider {
+    width: 80%;
+    margin: 0 auto;
+    position: relative; 
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 50%;
+    color: white;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.slick-prev {
+    left: -50px; 
+}
+
+
+.slick-next {
+    right: -50px; 
+}
+
+
+.slick-prev:hover, .slick-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.slick-dots {
+    bottom: -30px; 
+}
+
+.slick-dots li button:before {
+    color: black;
+    font-size: 15px;
+}
+
+
 
 @media (max-width: 768px) {
 
