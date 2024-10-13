@@ -162,12 +162,14 @@ nav a:hover {
 }
 
 .slick-dots li button:before {
-    color: black;
-    font-size: 15px;
+    color: #b8ad14; 
+    font-size: 15px; 
+    opacity: 1;
 }
 
 .slick-dots li.slick-active button:before {
     color: #a59f0c; 
+    opacity: 1; 
 }
 
 .slick-prev {
