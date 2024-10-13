@@ -173,16 +173,35 @@ nav a:hover {
 .slick-prev {
     background-color: #b8ad14; 
     color: white; 
+    pointer-events: auto; 
+    outline: none; 
 }
 
 .slick-next {
     background-color: #b8ad14; 
     color: white;
+    pointer-events: auto; 
+    outline: none; 
 }
 
 .slick-prev:hover, .slick-next:hover {
     background-color: #a59f0c; 
 }
+
+.slick-prev:focus, .slick-next:focus {
+    background-color: #b8ad14; 
+    color: white; 
+    outline: none; 
+    border: none; 
+}
+
+
+
+
+
+
+
+
 
 .slick-prev:before, .slick-next:before {
     display: none; 
