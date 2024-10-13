@@ -241,6 +241,9 @@ button:hover {
     font-size: 40px;
     cursor: pointer;
 }
+.close:hover {
+    color: #a59f0c;
+}
 
 .skills a {
     color: #b8ad14; 
