@@ -20,6 +20,12 @@ nav {
     top: 0; 
     width: 100%; 
     z-index: 10; 
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+nav.sticky {
+    background-color: rgba(13, 13, 13, 0.9); 
+    padding: 10px 0; 
 }
 
 nav a {
