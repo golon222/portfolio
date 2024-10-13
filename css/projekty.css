@@ -184,7 +184,9 @@ nav a:hover {
     background-color: #a59f0c; 
 }
 
-
+.slick-prev:before, .slick-next:before {
+    display: none; 
+}
 
 @media (max-width: 768px) {
 
