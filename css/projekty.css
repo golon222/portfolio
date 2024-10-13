@@ -183,6 +183,18 @@ nav a:hover {
     bottom: -30px;
 }
 
+.slick-dots li {
+    margin: 0 5px; 
+}
+
+.slick-dots.slick-dots-long {
+    bottom: -60px; 
+}
+
+.slick-dots.slick-dots-long li {
+    margin: 0 3px;
+}
+
 .slick-dots li button:before {
     color: #b8ad14 !important; 
     font-size: 8px !important; 
