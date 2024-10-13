@@ -181,13 +181,6 @@ nav a:hover {
 
 .slick-dots {
     bottom: -30px;
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 10px; 
-}
-.slick-dots li {
-    margin: 5px; 
 }
 
 .slick-dots li button:before {
