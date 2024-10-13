@@ -165,9 +165,25 @@ nav a:hover {
     color: black;
     font-size: 15px;
 }
-.slick-prev:before, .slick-next:before {
-    display: none; 
+
+.slick-dots li.slick-active button:before {
+    color: #a59f0c; 
 }
+
+.slick-prev {
+    background-color: #b8ad14; 
+    color: white; 
+}
+
+.slick-next {
+    background-color: #b8ad14; 
+    color: white;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    background-color: #a59f0c; 
+}
+
 
 
 @media (max-width: 768px) {
