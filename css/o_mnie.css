@@ -224,13 +224,13 @@ button:hover {
     border-radius: 10px;
     text-align: center;
     position: relative;
-    max-width: 90%; 
-    max-height: 90%; 
+    max-width: 50%; 
+    max-height: 50%; 
     overflow: auto;
 }
 .modal-img  {
     width: auto;  
-    max-height: 600px;   
+    max-height: 300px;   
     display: block;   
 }
 
