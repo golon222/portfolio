@@ -127,20 +127,6 @@ nav a:hover {
     text-decoration: underline; 
 }
 
-.spis li {
-    list-style-type: none; /
-    position: relative; 
-}
-
-.spis li::before {
-    content: "•"; 
-    color: #b8ad14; 
-    font-size: 10px;
-    position: relative;
-    left: -20px; 
-}
-
-
 .slider {
     width: 80%;
     margin: 0 auto;
