@@ -205,7 +205,7 @@ button:hover {
 }
 
 .modal {
-    display: none; 
+    display: flex; 
     position: fixed; 
     z-index: 100; 
     left: 0;
