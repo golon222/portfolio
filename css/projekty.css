@@ -1,0 +1,359 @@
+body {
+    margin: 0;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color: #1F1F1F;
+    color: #FFF;
+    line-height: 1.3;
+}
+
+nav {
+    background-color: #0D0D0D;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: static;
+    z-index: 10;
+}
+
+nav a {
+    font-family: "Quicksand", sans-serif;
+    margin: 0 20px;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    text-transform: capitalize;
+}
+
+nav a:hover {
+    color: #b8ad14;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.spis1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    margin: 0 auto;
+}
+
+.spis {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 95%;
+}
+
+.spis1 h3 {
+    margin: 10px 0;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.spis h3 {
+    margin: 10px 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+.bazy button {
+    background-color: #b8ad14;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.bazy button:hover {
+    background-color: #a59f0c;
+    transform: translateY(-1px);
+}
+
+.spis1 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.spis1 ul li {
+    margin: 10px 0;
+}
+.spis1 ul li a {
+    text-decoration: none;
+    color: #FFF;
+    padding: 10px 20px;
+    background-color: #3d3d3d;
+    border-radius: 5px;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.spis1 ul li a:hover {
+    background-color: #a59f0c;
+    transform: translateY(-1px);
+}
+
+
+.spis img{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.spis p {
+    margin-bottom: 10px;
+    padding: 0 10px;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #b8ad14;
+}
+
+.spis p1 {
+    text-align: center;
+}
+
+
+.spis a {
+    color: #b8ad14; 
+    text-decoration: none; 
+}
+
+.spis a:hover {
+    color: #a59f0c; 
+    text-decoration: underline; 
+}
+
+.slider {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 50%;
+    color: black;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.slick-prev {
+    left: -50px;
+}
+
+.slick-next {
+    right: -50px;
+}
+
+
+.slick-prev:before, .slick-next:before {
+    display: none;
+}
+
+
+.slick-prev, .slick-next {
+    background-color: #b8ad14; 
+    color: black;
+    pointer-events: auto;
+    outline: none;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    background-color: #a59f0c; 
+}
+
+.slick-prev:focus, .slick-next:focus {
+    background-color: #b8ad14;
+    color: black;
+    outline: none;
+    border: none;
+}
+
+.slick-dots {
+    bottom: -30px;
+}
+
+.slick-dots li {
+    margin: 0 5px; 
+}
+
+.slick-dots.slick-dots-long {
+    bottom: -60px; 
+}
+
+.slick-dots.slick-dots-long li {
+    margin: 0 3px;
+}
+
+.slick-dots li button:before {
+    color: #b8ad14 !important; 
+    font-size: 8px !important; 
+}
+
+.slick-dots li.slick-active button:before {
+    color: #a59f0c !important; 
+    opacity: 1 !important; 
+}
+
+
+#scrollToTop {
+
+    bottom: 50px; 
+    right: 20px; 
+    aspect-ratio: 1 / 1;
+    background-color: #b8ad14; 
+    color: black; 
+    font-weight: bold;
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 50px; 
+    cursor: pointer;
+}
+
+#scrollToTop:hover {
+    background-color: #a59f0c;
+    transform: translateY(-1px);
+}
+
+
+
+footer {
+    background-color: #0D0D0D;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 18px 0;
+    }
+
+    nav a {
+        font-size: 0; 
+        position: relative; 
+    }
+
+
+    nav a:nth-child(1)::before {
+        content: '\f2c2'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 400;
+        font-size: 24px;
+    }
+    nav a:nth-child(2)::before {
+        content: '\f007'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 400;
+        font-size: 24px;
+    }
+    nav a:nth-child(3)::before {
+        content: '\f1c8'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 400;
+        font-size: 24px;
+    }
+    nav a:nth-child(4)::before {
+        content: '\f0e0'; 
+        font-family: "Font Awesome 5 Free";
+        font-weight: 400;
+        font-size: 24px;
+    }
+
+    nav a::before {
+        display: block;
+        font-size: 24px;
+        text-align: center;
+        color: #ff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+ .container {
+        padding: 10px; 
+    }
+
+    .spis1, .spis {
+        width: 94%;
+        padding: 10px;
+    }
+
+    .spis1 h3, .spis h3 {
+        font-size: 24px; 
+    }
+
+    .spis1 button {
+        padding: 8px 16px; 
+        font-size: 14px; 
+    }
+
+    .spis img {
+        width: 100%; 
+        height: auto; 
+    }
+    
+    p1 {
+        display: block; 
+        margin: 10px 0; 
+        font-size: 14px; 
+    }
+
+    footer {
+    background-color: #0D0D0D;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+    footer p{
+        margin: 0;
+        font-size: 12px; 
+    }
+
+
+}
+
