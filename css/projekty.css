@@ -98,6 +98,10 @@ nav a:hover {
 .spis1 ul li {
     margin: 10px 0;
 }
+.spis ul li {
+    margin: 10px 0;
+}
+
 .spis1 ul li a {
     text-decoration: none;
     color: #FFF;
@@ -356,4 +360,5 @@ footer p {
 
 
 }
+
 
