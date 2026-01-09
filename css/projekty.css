@@ -99,7 +99,7 @@ nav a:hover {
     margin: 10px 0;
 }
 .spis ul li {
-    margin: 10px 0;
+    padding: 10px 20px;
 }
 
 .spis1 ul li a {
@@ -360,5 +360,6 @@ footer p {
 
 
 }
+
 
 
