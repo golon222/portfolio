@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt — Jakub Golon</title>
-    <meta name="description" content="Skontaktuj sie z Jakubem Golonem — analitykiem ds. aplikacji e-commerce.">
+    <title>Kontakt | Jakub Golon</title>
+    <meta name="description" content="Kontakt do Jakuba Golona, analityka ds. aplikacji e-commerce. E-mail, telefon, LinkedIn i formularz.">
     <link rel="icon" type="image/png" href="/jpg/ikona.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/kontakt.css">
 </head>
 <body>
+
+    <div id="progress"></div>
 
     <nav>
         <a href="/">Strona główna</a>
@@ -23,43 +25,45 @@
     </nav>
 
     <main>
+        <header class="page-head">
+            <div class="wrap">
+                <h1>Kontakt</h1>
+                <p>Najszybciej odpowiem na e-maila lub wiadomość na LinkedIn. Zwykle w ciągu jednego dnia roboczego.</p>
+            </div>
+        </header>
+
         <section class="section">
             <div class="wrap">
-                <p class="eyebrow">Kontakt</p>
-                <div class="section-head">
-                    <h2>Jak się ze mną skontaktować</h2>
-                    <div class="rule"></div>
-                </div>
                 <div class="contact-grid">
-                    <div class="contact-card">
-                        <i class="fas fa-envelope"></i>
+                    <div class="contact-card reveal" data-tilt>
+                        <div class="ico"><i class="fas fa-envelope"></i></div>
                         <span class="label">E-mail</span>
                         <a href="mailto:kuba.golon22@gmail.com">kuba.golon22@gmail.com</a>
+                        <button class="copy" data-copy="kuba.golon22@gmail.com"><i class="far fa-copy"></i> Kopiuj</button>
                     </div>
-                    <div class="contact-card">
-                        <i class="fas fa-phone"></i>
+                    <div class="contact-card reveal" data-tilt data-delay="80">
+                        <div class="ico"><i class="fas fa-phone"></i></div>
                         <span class="label">Telefon</span>
                         <a href="tel:+48502945009">+48 502 945 009</a>
+                        <button class="copy" data-copy="+48 502 945 009"><i class="far fa-copy"></i> Kopiuj</button>
                     </div>
-                    <div class="contact-card">
-                        <i class="fab fa-linkedin"></i>
+                    <div class="contact-card reveal" data-tilt data-delay="160">
+                        <div class="ico"><i class="fab fa-linkedin-in"></i></div>
                         <span class="label">LinkedIn</span>
                         <a href="https://linkedin.com/in/jakub-golon-133895297" target="_blank" rel="noopener">jakub-golon</a>
                     </div>
-                </div>
-                <div class="contact-grid" style="margin-top:16px">
-                    <div class="contact-card">
-                        <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-card reveal" data-tilt>
+                        <div class="ico"><i class="fas fa-location-dot"></i></div>
                         <span class="label">Lokalizacja</span>
-                        <span class="value">Warszawa / hybrydowo / zdalnie</span>
+                        <span class="value">Warszawa, hybrydowo, zdalnie</span>
                     </div>
-                    <div class="contact-card">
-                        <i class="fas fa-briefcase"></i>
+                    <div class="contact-card reveal" data-tilt data-delay="80">
+                        <div class="ico"><i class="fas fa-briefcase"></i></div>
                         <span class="label">Rola</span>
                         <span class="value">Analityk ds. aplikacji e-commerce</span>
                     </div>
-                    <div class="contact-card">
-                        <i class="fas fa-file-pdf"></i>
+                    <div class="contact-card reveal" data-tilt data-delay="160">
+                        <div class="ico"><i class="fas fa-file-pdf"></i></div>
                         <span class="label">Dokumenty</span>
                         <a href="/pliki/CV_Jakub_Golon.pdf" download="CV_Jakub_Golon.pdf">Pobierz CV</a>
                     </div>
@@ -67,13 +71,13 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section tight">
             <div class="wrap">
-                <div class="card form-card">
-                    <div class="section-head" style="margin-bottom:16px">
-                        <h2 style="font-size:1.2rem">Napisz wiadomość</h2>
+                <div class="card form-card reveal">
+                    <div class="section-head" style="margin-bottom:18px">
+                        <h2>Napisz wiadomość</h2>
                     </div>
-                    <p class="intro">Odpowiadam zwykle w ciągu jednego dnia roboczego.</p>
+                    <p class="intro">Wypełnij formularz, a odpowiem na podany adres e-mail.</p>
                     <form action="https://formspree.io/f/mgvwbqyp" method="POST">
                         <div class="field">
                             <label for="name">Twoje imię</label>
@@ -98,9 +102,14 @@
         </section>
     </main>
 
+    <button id="scrollToTop" onclick="scrollToTop()" aria-label="Powrót na górę"><i class="fas fa-arrow-up"></i></button>
+    <div id="toast" role="status" aria-live="polite"></div>
+
     <footer>
         <p>&copy; 2026 Jakub Golon. Wszystkie prawa zastrzeżone.</p>
     </footer>
 
+    <script src="/js/scrollToTop.js"></script>
+    <script src="/js/wow.js"></script>
 </body>
 </html>

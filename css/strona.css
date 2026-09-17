@@ -1,30 +1,105 @@
-/* Strona glowna - hero, kafelki stacku, skrot doswiadczenia */
+/* Strona glowna: ciemny hero jak naglowek CV, statystyki, narzedzia, doswiadczenie */
 
-.hero { padding: 72px 0 48px; }
+/* ---------- hero ---------- */
+
+.hero {
+    position: relative;
+    background: var(--dark);
+    color: var(--on-dark);
+    overflow: hidden;
+    padding: 96px 0 84px;
+    isolation: isolate;
+}
+
+/* plynna miedziana poswiata w tle */
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: -2;
+    opacity: 0.55;
+}
+
+.hero::before {
+    width: 620px;
+    height: 620px;
+    top: -220px;
+    right: -120px;
+    background: radial-gradient(circle, rgba(169, 105, 71, 0.85), transparent 68%);
+    animation: drift1 18s ease-in-out infinite alternate;
+}
+
+.hero::after {
+    width: 520px;
+    height: 520px;
+    bottom: -240px;
+    left: -140px;
+    background: radial-gradient(circle, rgba(103, 115, 129, 0.7), transparent 68%);
+    animation: drift2 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift1 {
+    to { transform: translate3d(-70px, 60px, 0) scale(1.15); }
+}
+
+@keyframes drift2 {
+    to { transform: translate3d(80px, -50px, 0) scale(1.12); }
+}
+
+#heroCanvas {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero .wrap { position: relative; z-index: 1; }
+
+.hero .eyebrow { color: var(--accent-light); }
 
 .hero h1 {
     font-family: var(--font-head);
-    font-weight: 800;
-    font-size: clamp(2.8rem, 8vw, 4.6rem);
-    line-height: 1.02;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 7.4vw, 4.4rem);
+    line-height: 1.04;
     letter-spacing: -0.03em;
     margin: 0;
 }
 
-.hero h1 .accent { color: var(--accent); }
+.hero h1 .accent {
+    color: transparent;
+    background: linear-gradient(105deg, var(--accent-light), #E7B294 55%, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
 
 .hero .role {
     font-family: var(--font-head);
-    font-weight: 500;
-    font-size: clamp(1.05rem, 2.6vw, 1.45rem);
-    color: var(--text);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: clamp(0.82rem, 2.1vw, 1.05rem);
+    color: var(--on-dark);
     margin: 18px 0 0;
+    min-height: 1.6em;
 }
 
-.hero .role span { color: var(--text-muted); }
+.hero .role .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--accent-light);
+    vertical-align: -0.16em;
+    margin-left: 3px;
+    animation: blink 1.05s step-end infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
 
 .hero .rule {
-    width: 120px;
+    width: 96px;
     height: 3px;
     background: var(--accent);
     border-radius: 2px;
@@ -32,123 +107,329 @@
 }
 
 .hero .lead {
-    max-width: 62ch;
-    font-size: 1.05rem;
-    color: var(--text-muted);
+    max-width: 60ch;
+    font-size: 1.04rem;
+    color: var(--on-dark-muted);
     margin: 0;
 }
 
-.meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 28px;
-    margin: 30px 0 0;
+/* ---------- karty kontaktowe w hero ---------- */
+
+.contact-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 34px 0 0;
     padding: 0;
     list-style: none;
 }
 
-.meta li {
+.contact-row > li > a,
+.contact-row > li > .box {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.98rem;
+    gap: 13px;
+    padding: 15px 17px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(242, 239, 234, 0.16);
+    background: rgba(242, 239, 234, 0.06);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: var(--on-dark);
+    height: 100%;
+    transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+.contact-row > li > a:hover {
+    border-color: var(--accent-light);
+    background: rgba(169, 105, 71, 0.2);
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.contact-row i {
+    color: var(--accent-light);
+    font-size: 1.05rem;
+    width: 20px;
+    text-align: center;
+    flex: none;
+}
+
+.contact-row .txt { display: flex; flex-direction: column; min-width: 0; }
+
+.contact-row .label {
+    font-family: var(--font-head);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--on-dark-muted);
+}
+
+.contact-row .value {
+    font-size: 0.87rem;
+    font-weight: 500;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.contact-row .txt { padding-right: 6px; }
+
+.cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+
+/* wejscie elementow hero po wczytaniu strony */
+body.js .hero .anim {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+body.loaded .hero .anim {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+body.loaded .hero .anim:nth-child(1) { transition-delay: 0.05s; }
+body.loaded .hero .anim:nth-child(2) { transition-delay: 0.14s; }
+body.loaded .hero .anim:nth-child(3) { transition-delay: 0.23s; }
+body.loaded .hero .anim:nth-child(4) { transition-delay: 0.32s; }
+body.loaded .hero .anim:nth-child(5) { transition-delay: 0.41s; }
+body.loaded .hero .anim:nth-child(6) { transition-delay: 0.5s; }
+body.loaded .hero .anim:nth-child(7) { transition-delay: 0.59s; }
+
+/* ---------- pasek statystyk ---------- */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    margin-top: -46px;
+    position: relative;
+    z-index: 2;
+}
+
+.stats div {
+    padding: 26px 22px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+}
+
+.stats div:last-child { border-right: none; }
+
+.stats .num {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.9rem;
+    line-height: 1.1;
+    color: var(--accent);
+    display: block;
+}
+
+.stats .cap {
+    font-size: 0.8rem;
     color: var(--text-muted);
+    display: block;
+    margin-top: 6px;
 }
 
-.meta li a { color: var(--text); }
-.meta li a:hover { color: var(--accent); }
-.meta i { color: var(--accent); width: 18px; text-align: center; }
-
-.cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 34px;
-}
-
-/* --- kafelki technologii --- */
+/* ---------- kafelki narzedzi ---------- */
 
 .stack-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
 }
 
 .stack-tile {
+    position: relative;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 18px 16px;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    border-radius: var(--radius);
+    padding: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.stack-tile:hover { border-color: var(--accent); transform: translateY(-2px); }
+/* poswiata podazajaca za kursorem */
+.stack-tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), var(--accent-soft), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.stack-tile:hover { border-color: var(--accent); box-shadow: var(--shadow-lg); }
+.stack-tile:hover::before { opacity: 1; }
+
+.stack-tile i {
+    color: var(--accent);
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+    display: block;
+}
 
 .stack-tile .name {
     font-family: var(--font-head);
     font-weight: 600;
-    font-size: 0.98rem;
+    font-size: 1.02rem;
     display: block;
 }
 
 .stack-tile .what {
-    font-size: 0.82rem;
+    font-size: 0.87rem;
     color: var(--text-muted);
     display: block;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
-/* --- skrot doswiadczenia --- */
+.note {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    margin: 20px 0 0;
+}
+
+/* ---------- karty doswiadczenia ---------- */
+
+.job-card { position: relative; overflow: hidden; }
+
+.job-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent);
+}
+
+.job-card:hover { box-shadow: var(--shadow-lg); }
 
 .job-card .period {
     font-family: var(--font-head);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 8px;
+    margin: 0 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .job-card h3 {
     font-family: var(--font-head);
-    font-size: 1.15rem;
-    margin: 0 0 4px;
+    font-size: 1.14rem;
+    font-weight: 600;
+    margin: 0 0 5px;
 }
 
 .job-card .company {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin: 0 0 14px;
-}
-
-.job-card p.desc {
-    margin: 0 0 16px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-.job-card .badge {
-    display: inline-block;
+    color: var(--accent-dark);
     font-family: var(--font-head);
-    font-size: 0.7rem;
+    font-weight: 500;
+    font-size: 0.93rem;
+    margin: 0 0 16px;
+}
+
+.job-card p.desc { margin: 0 0 18px; color: var(--text-muted); font-size: 0.94rem; }
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-head);
+    font-size: 0.64rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 10px;
+    letter-spacing: 0.12em;
+    padding: 3px 11px;
     border-radius: 999px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    margin-left: 10px;
-    vertical-align: middle;
+    background: var(--accent);
+    color: #fff;
 }
 
-@media (max-width: 900px) {
+.badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse { 50% { opacity: 0.25; transform: scale(0.7); } }
+
+/* ---------- pasek zachety na dole ---------- */
+
+.closing {
+    background: var(--dark);
+    color: var(--on-dark);
+    text-align: center;
+    padding: 72px 0;
+}
+
+.closing h2 {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    margin: 0 0 12px;
+}
+
+.closing p { color: var(--on-dark-muted); margin: 0 auto 28px; max-width: 52ch; }
+
+.closing .cta { justify-content: center; }
+
+@media (max-width: 980px) {
+    .contact-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .stack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stats div:nth-child(2) { border-right: none; }
+    .stats div:nth-child(1), .stats div:nth-child(2) { border-bottom: 1px solid var(--border); }
 }
 
-@media (max-width: 760px) {
-    .hero { padding: 44px 0 28px; }
-    .hero .lead { font-size: 1rem; }
+@media (max-width: 620px) {
+    .hero { padding: 56px 0 64px; }
+    .contact-row { grid-template-columns: 1fr; }
+    .stack-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr; margin-top: -30px; }
+    .stats div { border-right: none; border-bottom: 1px solid var(--border); }
+    .stats div:last-child { border-bottom: none; }
     .cta .btn { width: 100%; }
 }
+
+/* przycisk kopiowania w karcie kontaktowej */
+.contact-row .copy {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    border: 1px solid rgba(242, 239, 234, 0.18);
+    background: transparent;
+    color: var(--on-dark-muted);
+    cursor: pointer;
+    font-size: 0.78rem;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-row .copy:hover {
+    color: #fff;
+    border-color: var(--accent-light);
+    background: rgba(169, 105, 71, 0.28);
+}
+
+.contact-row .copy i { color: inherit; font-size: inherit; width: auto; }
+.contact-row a.value { color: var(--on-dark); }
+.contact-row a.value:hover { color: var(--accent-light); }
+
+/* wygaszenie hero nie moze przykryc paska statystyk */
+.hero .wrap { will-change: transform, opacity; }

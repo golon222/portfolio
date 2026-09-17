@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O mnie — Jakub Golon</title>
-    <meta name="description" content="Doswiadczenie, edukacja i stack technologiczny Jakuba Golona — analityka ds. aplikacji e-commerce.">
+    <title>O mnie | Jakub Golon</title>
+    <meta name="description" content="Doswiadczenie, edukacja i stack technologiczny Jakuba Golona, analityka ds. aplikacji e-commerce.">
     <link rel="icon" type="image/png" href="/jpg/ikona.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/o_mnie.css">
 </head>
 <body>
+
+    <div id="progress"></div>
 
     <nav>
         <a href="/">Strona główna</a>
@@ -23,89 +25,104 @@
     </nav>
 
     <main>
+        <header class="page-head">
+            <div class="wrap">
+                <img class="portrait" src="/jpg/ja-portret.jpg" alt="Jakub Golon" width="132" height="132" decoding="async">
+                <div>
+                    <h1>Jakub Golon</h1>
+                    <p class="role">Analityk ds. aplikacji e-commerce</p>
+                </div>
+            </div>
+        </header>
+
         <section class="section">
             <div class="wrap">
-                <p class="eyebrow">O mnie</p>
-                <div class="about">
-                    <img class="portrait" src="/jpg/ja.png" alt="Jakub Golon">
-                    <div class="bio">
-                        <p>
-                            Odpowiedzialny i nastawiony na rozwiązania <strong>analityk systemowy</strong>
-                            z praktycznym doświadczeniem w integracjach i utrzymaniu krytycznych systemów IT.
-                            W codziennej pracy łączę perspektywę biznesową z zapleczem technicznym — API, SQL,
-                            BPMN i narzędzia chmurowe.
-                        </p>
-                        <p>Moje doświadczenie opiera się na dwóch filarach:</p>
-                        <ul class="pillars">
-                            <li>
-                                <b>E-commerce i logistyka (Hebe)</b>
-                                Konfiguracja platform sprzedażowych i marketplace (Salesforce, Mirakl), testy UAT,
-                                integracje kurierskie (Innoship) oraz bieżące rozwiązywanie problemów operacyjnych
-                                (JIRA, ServiceNow).
-                            </li>
-                            <li>
-                                <b>Infrastruktura i incydenty (Euronet)</b>
-                                Zdalne wsparcie techniczne, wstępna diagnoza usterek i koordynacja serwisów
-                                terenowych (Dispatch / SLA) dla ogólnopolskiej sieci ponad 7500 bankomatów
-                                i wpłatomatów.
-                            </li>
-                        </ul>
-                        <p style="margin-top:22px">
-                            Cechuje mnie analityczne myślenie, samodzielność, dbałość o szczegóły techniczne
-                            i sprawne poruszanie się w złożonych architekturach systemowych.
-                        </p>
-                    </div>
+                <div class="section-head reveal">
+                    <h2>Profil zawodowy</h2>
+                    <div class="rule"></div>
+                </div>
+                <div class="bio reveal">
+                    <p>
+                        Odpowiedzialny i nastawiony na rozwiązania <strong>analityk systemowy</strong>
+                        z praktycznym doświadczeniem w integracjach i utrzymaniu krytycznych systemów IT.
+                        W codziennej pracy łączę perspektywę biznesową z zapleczem technicznym.
+                        Szybko przyswajam złożone procesy, potrafię analizować dane, optymalizować
+                        backlog i skutecznie rozwiązywać krytyczne problemy operacyjne.
+                    </p>
+                    <p>Moje doświadczenie opiera się na dwóch filarach:</p>
+                </div>
+                <ul class="pillars">
+                    <li class="reveal">
+                        <i class="fas fa-store"></i>
+                        <b>E-commerce (Hebe)</b>
+                        Konfiguracja platform sprzedażowych, wdrażanie nowych drogerii wraz z metodami
+                        dostaw, integracje kurierskie w Innoship, obsługa zamówień oraz bieżące
+                        rozwiązywanie problemów operacyjnych w JIRA i ServiceNow.
+                    </li>
+                    <li class="reveal" data-delay="90">
+                        <i class="fas fa-tower-broadcast"></i>
+                        <b>Infrastruktura i incydenty (Euronet)</b>
+                        Zdalne wsparcie techniczne, wstępna diagnoza usterek i koordynacja serwisów
+                        terenowych w reżimie SLA dla ogólnopolskiej sieci ponad 7500 bankomatów
+                        i wpłatomatów.
+                    </li>
+                </ul>
+                <div class="bio reveal" style="margin-top:26px">
+                    <p>
+                        Cechuje mnie analityczne myślenie, samodzielność, dbałość o szczegóły techniczne
+                        i sprawne poruszanie się w złożonych architekturach systemowych.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section alt">
             <div class="wrap">
-                <div class="section-head">
+                <div class="section-head reveal">
                     <h2>Doświadczenie zawodowe</h2>
                     <div class="rule"></div>
                 </div>
                 <ul class="timeline">
-                    <li class="current">
-                        <p class="period">01.04.2026 &ndash; obecnie</p>
+                    <li class="current reveal">
+                        <p class="period">01.04.2026 &rsaquo; obecnie</p>
                         <h3>Młodszy analityk ds. aplikacji e-commerce</h3>
-                        <p class="company">Hebe &middot; Jerónimo Martins Group</p>
+                        <p class="company">Hebe, Jerónimo Martins Group</p>
                         <ul class="duties">
-                            <li><b>Konfiguracja i integracja systemów</b> — wdrażanie nowych drogerii do ekosystemu e-commerce wraz z konfiguracją metod dostaw, nadzór nad integracjami z zewnętrznymi operatorami logistycznymi.</li>
-                            <li><b>Wsparcie projektowe i UAT</b> — koordynacja testów akceptacyjnych użytkownika nowej platformy marketplace (Mirakl), weryfikacja scenariuszy biznesowych, tworzenie dokumentacji technicznej i wsparcie PM-a w kontakcie z biznesem.</li>
-                            <li><b>Diagnozowanie i optymalizacja</b> — analiza problemów zgłaszanych przez sklepy i działy centralne, weryfikacja poprawności danych, poprawa mapowania statusów zamówień, obsługa incydentów w JIRA i ServiceNow.</li>
-                            <li><b>Procesy operacyjne</b> — monitorowanie dostępności usług kurierskich i konfiguracji dostaw w celu dotrzymania SLA oraz zabezpieczenia dużych akcji marketingowych.</li>
-                            <li><b>Współpraca biznesowa (SPOC)</b> — główny punkt kontaktu technicznego dla zespołów Logistyki oraz Marketplace.</li>
+                            <li><b>Konfiguracja i integracja systemów:</b> wdrażanie nowych drogerii do ekosystemu e-commerce wraz z konfiguracją metod dostaw oraz utrzymanie integracji z zewnętrznymi partnerami kurierskimi.</li>
+                            <li><b>Wsparcie projektów i testy akceptacyjne:</b> udział w koordynacji testów UAT nowej platformy marketplace, weryfikacja scenariuszy biznesowych, prowadzenie dokumentacji oraz wsparcie Project Managera w spotkaniach z biznesem.</li>
+                            <li><b>Diagnozowanie i optymalizacja:</b> analiza i rozwiązywanie bieżących problemów technicznych zgłaszanych przez drogerie oraz działy centralne, weryfikacja danych, poprawa mapowania statusów, obsługa zgłoszeń w JIRA i ServiceNow.</li>
+                            <li><b>Zarządzanie procesami operacyjnymi:</b> kontrolowanie dostępności usług kurierskich i konfiguracji dostaw w celu zabezpieczenia umów biznesowych i bezawaryjnej obsługi akcji marketingowych.</li>
+                            <li><b>Współpraca z biznesem:</b> pełnienie roli głównego punktu kontaktowego w zakresie wsparcia technicznego i wprowadzania usprawnień w procesach e-commerce.</li>
                         </ul>
                         <ul class="tags">
                             <li class="is-key">Salesforce</li>
-                            <li class="is-key">Mirakl</li>
-                            <li>Innoship</li>
-                            <li>OMS</li>
-                            <li>JIRA</li>
-                            <li>ServiceNow</li>
-                            <li>Postman</li>
-                            <li>SQL</li>
+                            <li class="is-key">Innoship</li>
+                            <li class="is-key">Postman</li>
+                            <li class="is-key">JIRA</li>
+                            <li class="is-key">ServiceNow</li>
+                            <li>Systemy OMS</li>
+                            <li>Testy UAT</li>
+                            <li>Mirakl</li>
                         </ul>
                     </li>
-                    <li>
-                        <p class="period">17.06.2024 &ndash; 31.01.2026</p>
+                    <li class="reveal" data-delay="90">
+                        <p class="period">17.06.2024 &rsaquo; 31.01.2026</p>
                         <h3>Młodszy specjalista ds. monitorowania sieci</h3>
                         <p class="company">EURONET POLSKA Sp. z o.o.</p>
                         <ul class="duties">
-                            <li><b>Monitorowanie infrastruktury</b> — bieżący nadzór nad ciągłością działania sieci ok. 7500 bankomatów i wpłatomatów w całej Polsce w dedykowanych systemach wewnętrznych.</li>
-                            <li><b>Zdalne wsparcie techniczne</b> — usuwanie usterek, zdalna dystrybucja komend, restarty, wgrywanie poprawek systemowych oraz zarządzanie bezpieczeństwem (m.in. dystrybucja kluczy kryptograficznych do PIN padów).</li>
-                            <li><b>Zarządzanie incydentami (Dispatch)</b> — wstępna klasyfikacja przyczyn awarii (sprzętowe, oprogramowanie, gotówka) i dysponowanie zgłoszeń do grup technicznych i konwojowych pod ścisłym reżimem czasowym (SLA).</li>
-                            <li><b>Obsługa operacyjna (Helpdesk)</b> — telefoniczne wsparcie techniczne dla serwisantów w terenie, weryfikacja statusów maszyn on-line i dostarczanie danych niezbędnych do naprawy.</li>
+                            <li><b>Monitorowanie infrastruktury:</b> nadzór nad ciągłością działania ogólnopolskiej sieci około 7500 bankomatów i wpłatomatów przy wykorzystaniu dedykowanych systemów wewnętrznych.</li>
+                            <li><b>Zdalne wsparcie techniczne:</b> samodzielne usuwanie usterek poprzez zdalne restarty, dystrybucję komend, wgrywanie poprawek systemowych oraz zarządzanie bezpieczeństwem.</li>
+                            <li><b>Zarządzanie incydentami:</b> rozpoznawanie przyczyn usterek pod kątem problemów z oprogramowaniem, sprzętem lub obsługą gotówki i przekazywanie dyspozycji do właściwych serwisantów bądź grup konwojowych w wyznaczonych czasach SLA.</li>
+                            <li><b>Bieżąca obsługa operacyjna:</b> telefoniczne wsparcie dla serwisantów oraz grup konwojowych w terenie, weryfikacja statusów maszyn on-line i dostarczanie danych potrzebnych do skutecznej naprawy.</li>
                         </ul>
                         <ul class="tags">
-                            <li>Monitoring 24/7</li>
-                            <li>SLA / ITIL</li>
+                            <li class="is-key">Monitoring 24/7</li>
+                            <li>Dispatch i SLA</li>
                             <li>Grafana</li>
-                            <li>Cisco</li>
                             <li>Linux</li>
+                            <li>Windows</li>
                         </ul>
-                        <p style="margin-top:16px"><button class="btn btn-ghost btn-small" id="openModalBtn1"><i class="fas fa-file-alt"></i> Referencje</button></p>
+                        <p style="margin:16px 0 0"><button class="btn btn-ghost btn-small" id="openModalBtn1"><i class="fas fa-file-lines"></i> Referencje</button></p>
                     </li>
                 </ul>
             </div>
@@ -113,94 +130,95 @@
 
         <section class="section">
             <div class="wrap">
-                <div class="section-head">
-                    <h2>Edukacja</h2>
+                <div class="section-head reveal">
+                    <h2>Wykształcenie</h2>
                     <div class="rule"></div>
                 </div>
                 <ul class="timeline">
-                    <li class="current">
-                        <p class="period">01.10.2025 &ndash; obecnie</p>
-                        <h3>Zarządzanie — studia magisterskie (zaoczne)</h3>
-                        <p class="company">Uniwersytet WSB Merito Warszawa &middot; specjalność: zarządzanie projektami</p>
+                    <li class="current reveal">
+                        <p class="period">10.2025 &rsaquo; obecnie</p>
+                        <h3>Zarządzanie, studia magisterskie zaoczne</h3>
+                        <p class="company">Uniwersytet WSB Merito Warszawa</p>
+                        <p style="color:var(--text-muted);font-size:0.94rem;margin:0">Specjalizacja: zarządzanie projektami</p>
                     </li>
-                    <li>
-                        <p class="period">01.10.2021 &ndash; 21.02.2025</p>
-                        <h3>Zarządzanie informacją — inżynier</h3>
-                        <p class="company">Polsko-Japońska Akademia Technik Komputerowych w Warszawie &middot; specjalność: wdrożenia systemów IT</p>
+                    <li class="reveal" data-delay="90">
+                        <p class="period">10.2021 &rsaquo; 02.2025</p>
+                        <h3>Zarządzanie informacją, studia inżynierskie dzienne</h3>
+                        <p class="company">Polsko-Japońska Akademia Technik Komputerowych</p>
+                        <p style="color:var(--text-muted);font-size:0.94rem;margin:0">Specjalizacja: wdrażanie systemów IT</p>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section alt">
             <div class="wrap">
-                <div class="section-head">
-                    <h2>Stack technologiczny</h2>
+                <div class="section-head reveal">
+                    <h2>Umiejętności i narzędzia</h2>
                     <div class="rule"></div>
                 </div>
                 <div class="grid-2">
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="stack-group">
-                            <h4>E-commerce i marketplace</h4>
+                            <h4>Platformy i systemy</h4>
                             <ul class="tags">
                                 <li class="is-key">Salesforce Commerce Cloud</li>
                                 <li class="is-key">Salesforce Service Cloud</li>
                                 <li>Salesforce Marketing Cloud</li>
-                                <li class="is-key">Mirakl</li>
-                                <li>Izberg</li>
-                            </ul>
-                        </div>
-                        <div class="stack-group">
-                            <h4>Logistyka i zarządzanie zamówieniami</h4>
-                            <ul class="tags">
                                 <li class="is-key">Innoship</li>
                                 <li>Systemy OMS</li>
+                                <li>Mirakl</li>
+                                <li>Izberg</li>
+                                <li>SAP S/4HANA</li>
                             </ul>
                         </div>
                         <div class="stack-group">
-                            <h4>Narzędzia IT i obsługa incydentów</h4>
+                            <h4>Zgłoszenia i monitoring</h4>
                             <ul class="tags">
                                 <li class="is-key">JIRA</li>
                                 <li class="is-key">ServiceNow</li>
-                                <li class="is-key">SAP S/4HANA</li>
                                 <li>Grafana</li>
-                                <li>Cisco</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="card">
                         <div class="stack-group">
                             <h4>Analiza i modelowanie</h4>
                             <ul class="tags">
-                                <li class="is-key">Postman (API REST)</li>
-                                <li class="is-key">SQL</li>
+                                <li class="is-key">Postman</li>
+                                <li>SQL</li>
                                 <li>BPMN</li>
                                 <li>UML</li>
                             </ul>
                         </div>
+                    </div>
+                    <div class="card reveal" data-delay="90">
                         <div class="stack-group">
                             <h4>Środowiska i web</h4>
                             <ul class="tags">
                                 <li>Linux</li>
                                 <li>Windows</li>
                                 <li>Java</li>
-                                <li>HTML5</li>
-                                <li>CSS3</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
                             </ul>
                         </div>
                         <div class="stack-group">
                             <h4>Narzędzia biurowe i projektowe</h4>
                             <ul class="tags">
-                                <li>MS Office (zaawansowany Excel)</li>
+                                <li>MS Office, zaawansowany Excel</li>
                                 <li>Figma</li>
-                                <li>Adobe Photoshop</li>
-                                <li>Adobe Premiere Pro</li>
+                                <li>Photoshop</li>
+                                <li>Premiere Pro</li>
                             </ul>
                         </div>
-                        <h4 style="font-family:var(--font-head);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin:22px 0 12px;font-weight:600">Certyfikaty</h4>
-                        <p style="margin:0;display:flex;flex-wrap:wrap;gap:10px">
-                            <a href="#" id="openModalBtn2" class="tag"><i class="fas fa-certificate"></i> Motion Design with Figma</a>
-                            <a href="#" id="openModalBtn3" class="tag"><i class="fas fa-certificate"></i> Java</a>
+                        <div class="stack-group">
+                            <h4>Certyfikaty</h4>
+                            <p style="margin:0;display:flex;flex-wrap:wrap;gap:9px">
+                                <a href="#" id="openModalBtn2" class="tag"><i class="fas fa-award"></i> Motion Design with Figma</a>
+                                <a href="#" id="openModalBtn3" class="tag"><i class="fas fa-award"></i> Java</a>
+                            </p>
+                        </div>
+                        <p style="font-size:0.84rem;color:var(--text-muted);margin:22px 0 0">
+                            Wyróżnione narzędzia to te, z których korzystam w codziennej pracy.
                         </p>
                     </div>
                 </div>
@@ -210,25 +228,32 @@
         <section class="section">
             <div class="wrap">
                 <div class="grid-2">
-                    <div class="card">
-                        <div class="section-head" style="margin-bottom:16px">
-                            <h2 style="font-size:1.2rem">Języki obce</h2>
+                    <div class="card reveal">
+                        <div class="section-head" style="margin-bottom:18px">
+                            <h2>Języki</h2>
                         </div>
                         <ul class="lang-list">
-                            <li><span class="name">Angielski</span> <span class="level">C1</span></li>
-                            <li><span class="name">Niemiecki</span> <span class="level">B1</span></li>
+                            <li class="reveal" style="--val:88%">
+                                <div class="top"><span class="name">Angielski</span><span class="level">C1, zaawansowany</span></div>
+                                <div class="bar"><span></span></div>
+                            </li>
+                            <li class="reveal" data-delay="150" style="--val:55%">
+                                <div class="top"><span class="name">Niemiecki</span><span class="level">B1</span></div>
+                                <div class="bar"><span></span></div>
+                            </li>
                         </ul>
                     </div>
-                    <div class="card">
-                        <div class="section-head" style="margin-bottom:16px">
-                            <h2 style="font-size:1.2rem">Kompetencje miękkie</h2>
+                    <div class="card reveal" data-delay="90">
+                        <div class="section-head" style="margin-bottom:18px">
+                            <h2>Kompetencje miękkie</h2>
                         </div>
                         <ul class="soft-list">
-                            <li>Analityczne i krytyczne myślenie</li>
-                            <li>Troubleshooting i analiza przyczyn źródłowych</li>
-                            <li>Samodzielność w podejmowaniu decyzji</li>
-                            <li>Koordynacja testów UAT i tworzenie dokumentacji</li>
-                            <li>Komunikacja na styku biznes &harr; IT (rola SPOC)</li>
+                            <li><i class="fas fa-check"></i> Rozwiązywanie problemów i analiza przyczyn źródłowych</li>
+                            <li><i class="fas fa-check"></i> Dobra organizacja pracy własnej</li>
+                            <li><i class="fas fa-check"></i> Analityczne i krytyczne myślenie</li>
+                            <li><i class="fas fa-check"></i> Dbałość o szczegóły techniczne</li>
+                            <li><i class="fas fa-check"></i> Samodzielność w podejmowaniu decyzji</li>
+                            <li><i class="fas fa-check"></i> Komunikacja na styku biznesu i IT</li>
                         </ul>
                     </div>
                 </div>
@@ -244,6 +269,7 @@
     </div>
 
     <button id="scrollToTop" onclick="scrollToTop()" aria-label="Powrót na górę"><i class="fas fa-arrow-up"></i></button>
+    <div id="toast" role="status" aria-live="polite"></div>
 
     <footer>
         <p>&copy; 2026 Jakub Golon. Wszystkie prawa zastrzeżone.</p>
@@ -251,5 +277,6 @@
 
     <script src="/js/scrollToTop.js"></script>
     <script src="/js/rek.js"></script>
+    <script src="/js/wow.js"></script>
 </body>
 </html>

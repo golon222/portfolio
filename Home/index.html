@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jakub Golon — Analityk ds. aplikacji e-commerce</title>
-    <meta name="description" content="Jakub Golon — analityk systemowy specjalizujacy sie w integracji i utrzymaniu aplikacji e-commerce oraz systemow logistycznych. Salesforce, Mirakl, JIRA, ServiceNow, Postman, SQL.">
+    <title>Jakub Golon | Analityk ds. aplikacji e-commerce</title>
+    <meta name="description" content="Jakub Golon, analityk ds. aplikacji e-commerce. Integracje, utrzymanie platform sprzedazowych, testy UAT. Salesforce, Innoship, JIRA, ServiceNow, Postman.">
     <link rel="icon" type="image/png" href="/jpg/ikona.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/strona.css">
 </head>
 <body>
+
+    <div id="progress"></div>
 
     <nav>
         <a href="/Home/" class="active">Strona główna</a>
@@ -24,97 +26,189 @@
 
     <main>
         <header class="hero">
-            <div class="wrap">
-                <p class="eyebrow">E-commerce &middot; Integracje &middot; Logistyka</p>
-                <h1>Jakub <span class="accent">Golon</span></h1>
-                <p class="role">Analityk ds. aplikacji e-commerce <span>/ analityk systemowy</span></p>
-                <div class="rule"></div>
-                <p class="lead">
-                    Jestem analitykiem specjalizującym się w integracji i utrzymaniu systemów IT w obszarze
-                    e-commerce oraz logistyki. Łączę technologię z potrzebami biznesu — dbam o bezawaryjność
-                    platform sprzedażowych, płynność integracji partnerskich i dotrzymywanie celów SLA.
+            <canvas id="heroCanvas"></canvas>
+            <div class="wrap" data-parallax="0.16">
+                <p class="eyebrow anim">E-commerce &middot; Integracje</p>
+                <h1 class="anim">Jakub <span class="accent">Golon</span></h1>
+                <p class="role anim"><span id="roleRotator" data-roles="Analityk ds. aplikacji e-commerce|Analityk systemowy|Specjalista ds. integracji IT">Analityk ds. aplikacji e-commerce</span><span class="cursor"></span></p>
+                <div class="rule anim"></div>
+                <p class="lead anim">
+                    Odpowiedzialny analityk z doświadczeniem w integracji i utrzymaniu systemów IT.
+                    Szybko przyswajam złożone procesy biznesowe, dobrze organizuję pracę własną,
+                    analizuję dane i skutecznie rozwiązuję krytyczne problemy operacyjne.
                 </p>
-                <ul class="meta">
-                    <li><i class="fas fa-map-marker-alt"></i> Warszawa / hybrydowo / zdalnie</li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:kuba.golon22@gmail.com">kuba.golon22@gmail.com</a></li>
-                    <li><i class="fas fa-phone"></i> <a href="tel:+48502945009">+48 502 945 009</a></li>
-                    <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/jakub-golon-133895297" target="_blank" rel="noopener">LinkedIn</a></li>
+                <ul class="contact-row anim">
+                    <li>
+                        <div class="box">
+                            <i class="fas fa-envelope"></i>
+                            <span class="txt">
+                                <span class="label">E-mail</span>
+                                <a class="value" href="mailto:kuba.golon22@gmail.com">kuba.golon22@gmail.com</a>
+                            </span>
+                            <button class="copy" data-copy="kuba.golon22@gmail.com" aria-label="Kopiuj adres e-mail" title="Kopiuj"><i class="far fa-copy"></i></button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="box">
+                            <i class="fas fa-phone"></i>
+                            <span class="txt">
+                                <span class="label">Telefon</span>
+                                <a class="value" href="tel:+48502945009">+48 502 945 009</a>
+                            </span>
+                            <button class="copy" data-copy="+48 502 945 009" aria-label="Kopiuj numer telefonu" title="Kopiuj"><i class="far fa-copy"></i></button>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/jakub-golon-133895297" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            <span class="txt">
+                                <span class="label">LinkedIn</span>
+                                <span class="value">jakub-golon</span>
+                            </span>
+                            <i class="fas fa-arrow-up-right-from-square" style="margin-left:auto;font-size:0.72rem;width:auto"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="box">
+                            <i class="fas fa-location-dot"></i>
+                            <span class="txt">
+                                <span class="label">Lokalizacja</span>
+                                <span class="value">Warszawa, hybrydowo, zdalnie</span>
+                            </span>
+                        </div>
+                    </li>
                 </ul>
-                <div class="cta">
+                <div class="cta anim">
                     <a class="btn" href="/pliki/CV_Jakub_Golon.pdf" download="CV_Jakub_Golon.pdf"><i class="fas fa-download"></i> Pobierz CV</a>
-                    <a class="btn btn-ghost" href="/O_mnie/">Doświadczenie i stack</a>
+                    <a class="btn btn-light" href="/O_mnie/">Doświadczenie i stack</a>
                 </div>
             </div>
         </header>
 
+        <div class="wrap">
+            <div class="stats reveal">
+                <div><span class="num" data-count="7500" data-suffix="+">7500+</span><span class="cap">urządzeń w nadzorowanej sieci</span></div>
+                <div><span class="num" data-count="2">2</span><span class="cap">lata doświadczenia w IT</span></div>
+                <div><span class="num">C1</span><span class="cap">angielski, poziom zaawansowany</span></div>
+                <div><span class="num">24/7</span><span class="cap">praca w reżimie SLA</span></div>
+            </div>
+        </div>
+
         <section class="section">
             <div class="wrap">
-                <div class="section-head">
+                <div class="section-head reveal">
                     <h2>Czym pracuję na co dzień</h2>
                     <div class="rule"></div>
                 </div>
                 <div class="stack-grid">
-                    <div class="stack-tile"><span class="name">Salesforce</span><span class="what">Commerce / Service / Marketing Cloud</span></div>
-                    <div class="stack-tile"><span class="name">Mirakl</span><span class="what">platforma marketplace</span></div>
-                    <div class="stack-tile"><span class="name">Innoship</span><span class="what">integracje kurierskie</span></div>
-                    <div class="stack-tile"><span class="name">SAP S/4HANA</span><span class="what">system ERP</span></div>
-                    <div class="stack-tile"><span class="name">JIRA</span><span class="what">zgłoszenia i praca projektowa</span></div>
-                    <div class="stack-tile"><span class="name">ServiceNow</span><span class="what">obsługa incydentów, ITIL</span></div>
-                    <div class="stack-tile"><span class="name">Postman</span><span class="what">testowanie API REST</span></div>
-                    <div class="stack-tile"><span class="name">SQL</span><span class="what">analiza i weryfikacja danych</span></div>
+                    <div class="stack-tile reveal" data-tilt data-delay="0">
+                        <i class="fas fa-cloud"></i>
+                        <span class="name">Salesforce</span>
+                        <span class="what">Commerce Cloud i Service Cloud</span>
+                    </div>
+                    <div class="stack-tile reveal" data-tilt data-delay="70">
+                        <i class="fas fa-truck-fast"></i>
+                        <span class="name">Innoship</span>
+                        <span class="what">integracje kurierskie i metody dostaw</span>
+                    </div>
+                    <div class="stack-tile reveal" data-tilt data-delay="140">
+                        <i class="fas fa-paper-plane"></i>
+                        <span class="name">Postman</span>
+                        <span class="what">operacje na zamówieniach: anulowanie, zmiana danych, podgląd</span>
+                    </div>
+                    <div class="stack-tile reveal" data-tilt data-delay="0">
+                        <i class="fas fa-box-open"></i>
+                        <span class="name">Systemy OMS</span>
+                        <span class="what">obsługa i weryfikacja zamówień</span>
+                    </div>
+                    <div class="stack-tile reveal" data-tilt data-delay="70">
+                        <i class="fab fa-jira"></i>
+                        <span class="name">JIRA</span>
+                        <span class="what">zgłoszenia i praca projektowa</span>
+                    </div>
+                    <div class="stack-tile reveal" data-tilt data-delay="140">
+                        <i class="fas fa-headset"></i>
+                        <span class="name">ServiceNow</span>
+                        <span class="what">obsługa incydentów w reżimie SLA</span>
+                    </div>
                 </div>
+                <p class="note reveal">
+                    Okresowo, przy testach akceptacyjnych nowej platformy marketplace, pracuję też
+                    z Mirakl. Pełną listę narzędzi znajdziesz w zakładce <a href="/O_mnie/">O mnie</a>.
+                </p>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section tight">
             <div class="wrap">
-                <div class="section-head">
+                <div class="section-head reveal">
                     <h2>Doświadczenie</h2>
                     <div class="rule"></div>
                 </div>
                 <div class="grid-2">
-                    <article class="card job-card">
-                        <p class="period">04.2026 &ndash; obecnie <span class="badge">Obecnie</span></p>
+                    <article class="card job-card reveal">
+                        <p class="period">01.04.2026 &rsaquo; obecnie <span class="badge"><span class="dot"></span> Aktualnie</span></p>
                         <h3>Młodszy analityk ds. aplikacji e-commerce</h3>
-                        <p class="company">Hebe &middot; Jerónimo Martins Group</p>
+                        <p class="company">Hebe, Jerónimo Martins Group</p>
                         <p class="desc">
-                            Konfiguracja i integracja platform sprzedażowych, koordynacja testów UAT nowej
-                            platformy marketplace, mapowanie statusów zamówień i nadzór nad integracjami
-                            z operatorami logistycznymi. Punkt kontaktu technicznego (SPOC) dla Logistyki
-                            i Marketplace.
+                            Konfiguracja i integracja platform sprzedażowych, wdrażanie nowych drogerii
+                            wraz z metodami dostaw, koordynacja testów akceptacyjnych, poprawa mapowania
+                            statusów zamówień oraz nadzór nad integracjami z operatorami kurierskimi.
+                            Pełnię rolę punktu kontaktu technicznego dla biznesu.
                         </p>
                         <ul class="tags">
                             <li class="is-key">Salesforce</li>
-                            <li class="is-key">Mirakl</li>
-                            <li>Innoship</li>
-                            <li>UAT</li>
+                            <li class="is-key">Innoship</li>
+                            <li>Testy UAT</li>
                             <li>JIRA</li>
+                            <li>ServiceNow</li>
+                            <li>Postman</li>
                         </ul>
                     </article>
-                    <article class="card job-card">
-                        <p class="period">06.2024 &ndash; 01.2026</p>
+                    <article class="card job-card reveal" data-delay="90">
+                        <p class="period">17.06.2024 &rsaquo; 31.01.2026</p>
                         <h3>Młodszy specjalista ds. monitorowania sieci</h3>
                         <p class="company">EURONET POLSKA Sp. z o.o.</p>
                         <p class="desc">
-                            Nadzór nad ciągłością działania ok. 7500 bankomatów i wpłatomatów w całej Polsce,
-                            zdalne usuwanie usterek, wstępna diagnoza awarii oraz dysponowanie zgłoszeń do
-                            grup serwisowych i konwojowych pod reżimem SLA.
+                            Nadzór nad ciągłością działania ogólnopolskiej sieci około 7500 bankomatów
+                            i wpłatomatów, zdalne usuwanie usterek, rozpoznawanie przyczyn awarii
+                            i przekazywanie dyspozycji do serwisantów oraz grup konwojowych
+                            w wyznaczonych czasach SLA.
                         </p>
                         <ul class="tags">
                             <li class="is-key">Monitoring 24/7</li>
-                            <li>SLA / Dispatch</li>
+                            <li>Dispatch i SLA</li>
                             <li>Grafana</li>
-                            <li>Cisco</li>
+                            <li>Linux</li>
                         </ul>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="closing">
+            <div class="wrap">
+                <h2 class="reveal">Porozmawiajmy o integracjach e-commerce</h2>
+                <p class="reveal">
+                    Jeśli szukasz kogoś, kto poprowadzi konfigurację, integrację i utrzymanie
+                    aplikacji sprzedażowych, chętnie opowiem, jak pracuję.
+                </p>
+                <div class="cta reveal">
+                    <a class="btn" href="/Kontakt/"><i class="fas fa-paper-plane"></i> Napisz do mnie</a>
+                    <a class="btn btn-light" href="/Projekty/">Zobacz projekty</a>
                 </div>
             </div>
         </section>
     </main>
 
+    <button id="scrollToTop" onclick="scrollToTop()" aria-label="Powrót na górę"><i class="fas fa-arrow-up"></i></button>
+    <div id="toast" role="status" aria-live="polite"></div>
+
     <footer>
         <p>&copy; 2026 Jakub Golon. Wszystkie prawa zastrzeżone.</p>
     </footer>
 
+    <script src="/js/scrollToTop.js"></script>
+    <script src="/js/wow.js"></script>
 </body>
 </html>
