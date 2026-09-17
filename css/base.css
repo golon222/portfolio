@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Jgolon.pl - wspolny system stylow
+   Paleta i typografia uzywane na wszystkich podstronach.
+   ========================================================================== */
+
+:root {
+    --bg: #131313;
+    --bg-alt: #0D0D0D;
+    --surface: #1B1B1B;
+    --surface-2: #212121;
+    --border: #2E2E2E;
+    --accent: #B8AD14;
+    --accent-dark: #a59f0c;
+    --accent-soft: rgba(184, 173, 20, 0.12);
+    --text: #F2F2F2;
+    --text-muted: #A9A9A9;
+    --font-head: "Montserrat", sans-serif;
+    --font-body: "PT Sans", sans-serif;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --maxw: 1100px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+main { flex: 1 0 auto; }
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover { color: var(--accent-dark); }
+
+/* ---------- Nawigacja ---------- */
+
+nav {
+    background-color: var(--bg-alt);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+nav a {
+    font-family: var(--font-head);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    padding: 8px 18px;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover { background-color: var(--accent-soft); color: var(--accent); }
+
+nav a.active {
+    background-color: var(--accent);
+    color: #111;
+}
+
+/* ---------- Ukladki ---------- */
+
+.wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section { padding: 56px 0; }
+.section + .section { padding-top: 0; }
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.section-head h2 {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.section-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.eyebrow {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 12px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* ---------- Tagi technologii ---------- */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.tags li,
+.tag {
+    font-family: var(--font-head);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--text);
+    white-space: nowrap;
+}
+
+a.tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.tags li.is-key,
+.tag.is-key {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+/* ---------- Przyciski ---------- */
+
+.btn,
+button.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 13px 28px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background-color: var(--accent);
+    color: #111;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-dark);
+    color: #111;
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+.btn-ghost:hover {
+    background-color: var(--accent-soft);
+    color: var(--accent);
+}
+
+.btn-small {
+    font-size: 0.85rem;
+    padding: 9px 18px;
+}
+
+/* ---------- Stopka ---------- */
+
+footer {
+    background-color: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 26px 20px;
+    margin-top: 56px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* ---------- Powrot na gore ---------- */
+
+#scrollToTop {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    width: 46px;
+    height: 46px;
+    background-color: var(--accent);
+    color: #111;
+    border: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 40;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#scrollToTop:hover { background-color: var(--accent-dark); transform: translateY(-2px); }
+#scrollToTop i { color: #111; }
+
+/* ---------- Modal (referencje / certyfikaty) ---------- */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.modal-content {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    padding: 18px;
+    border-radius: var(--radius);
+    text-align: center;
+    position: relative;
+    max-width: min(640px, 92vw);
+    max-height: 85vh;
+    overflow: auto;
+}
+
+.modal-content img { max-width: 100%; height: auto; display: block; }
+
+.close {
+    position: fixed;
+    top: 12px;
+    right: 26px;
+    color: var(--accent);
+    font-size: 2.4rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 110;
+}
+
+.close:hover { color: var(--accent-dark); }
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 760px) {
+    .wrap { padding: 0 18px; }
+    .section { padding: 36px 0; }
+    .grid-2 { grid-template-columns: 1fr; }
+    nav { padding: 10px 8px; gap: 2px; }
+    nav a { font-size: 0.8rem; padding: 7px 12px; }
+    .section-head h2 { font-size: 1.3rem; }
+}
