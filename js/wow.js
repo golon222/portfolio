@@ -42,11 +42,12 @@
             }
         }
 
-        /* parallaksa tresci hero, liczona tylko dopoki hero jest w widoku */
+        /* parallaksa tresci hero: wyjazd w gore, zeby tekst nie wchodzil pod
+           pasek faktow, ktory nachodzi na dolna krawedz hero */
         if (heroWrap && !reduced && y < vh * 1.2) {
             var speed = parseFloat(heroWrap.getAttribute('data-parallax')) || 0.15;
-            heroWrap.style.transform = 'translate3d(0,' + (y * speed).toFixed(1) + 'px,0)';
-            heroWrap.style.opacity = Math.max(0, 1 - y / (vh * 0.85)).toFixed(3);
+            heroWrap.style.transform = 'translate3d(0,' + (-y * speed).toFixed(1) + 'px,0)';
+            heroWrap.style.opacity = Math.max(0, 1 - y / (vh * 0.7)).toFixed(3);
         }
 
         /* os czasu wypelnia sie w miare przewijania */
@@ -274,45 +275,6 @@
 
                 setTimeout(type, wait);
             }, 2400);
-        }
-    }
-
-    /* ======================================================================
-       Liczniki
-       ====================================================================== */
-
-    var counters = document.querySelectorAll('[data-count]');
-
-    if (counters.length) {
-        var runCounter = function (el) {
-            var target = parseFloat(el.getAttribute('data-count'));
-            var suffix = el.getAttribute('data-suffix') || '';
-
-            if (reduced) { el.textContent = target + suffix; return; }
-
-            var start = 0;
-            var dur = 1600;
-
-            requestAnimationFrame(function step(now) {
-                if (!start) start = now;
-                var p = Math.min((now - start) / dur, 1);
-                var eased = 1 - Math.pow(1 - p, 3);
-                el.textContent = Math.round(target * eased) + suffix;
-                if (p < 1) requestAnimationFrame(step);
-            });
-        };
-
-        if ('IntersectionObserver' in window) {
-            var cio = new IntersectionObserver(function (entries) {
-                for (var i = 0; i < entries.length; i++) {
-                    if (!entries[i].isIntersecting) continue;
-                    runCounter(entries[i].target);
-                    cio.unobserve(entries[i].target);
-                }
-            }, { threshold: 0.35 });
-            Array.prototype.forEach.call(counters, function (el) { cio.observe(el); });
-        } else {
-            Array.prototype.forEach.call(counters, runCounter);
         }
     }
 

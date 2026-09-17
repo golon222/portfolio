@@ -291,3 +291,36 @@
     background: linear-gradient(180deg, var(--accent), var(--accent-light));
     transition: height 0.12s linear;
 }
+
+/* kierunek zawodowy pod naglowkiem */
+.page-head .aim {
+    font-size: 0.95rem;
+    color: var(--on-dark-muted);
+    margin: 8px 0 0;
+}
+
+/* blok z celem zawodowym */
+.aim-box {
+    margin-top: 34px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.aim-box h3 {
+    font-family: var(--font-head);
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.aim-box h3 i { color: var(--accent); font-size: 0.98rem; }
+
+.aim-box p { margin: 0; color: var(--text-muted); }
+.aim-box strong { color: var(--text); font-weight: 600; }

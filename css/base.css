@@ -11,7 +11,7 @@
     --border-strong: #D3CABC;
 
     --text: #2F3439;
-    --text-muted: #677381;
+    --text-muted: #556069;
 
     --accent: #A96947;
     --accent-dark: #8E553A;
@@ -21,7 +21,7 @@
     --dark: #2F363B;
     --dark-2: #23282C;
     --on-dark: #F2EFEA;
-    --on-dark-muted: #A9B2BA;
+    --on-dark-muted: #B6BEC5;
 
     --font-head: "Poppins", sans-serif;
     --font-body: "Inter", "Segoe UI", sans-serif;
@@ -45,7 +45,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    line-height: 1.68;
+    font-size: 17px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -89,7 +90,7 @@ nav {
 nav a {
     font-family: var(--font-head);
     font-weight: 500;
-    font-size: 0.92rem;
+    font-size: 0.96rem;
     color: var(--text);
     padding: 9px 20px;
     border-radius: 999px;
@@ -114,7 +115,7 @@ nav a.active {
     padding: 0 28px;
 }
 
-.section { padding: 72px 0; }
+.section { padding: 84px 0; }
 .section.tight { padding-top: 0; }
 .section.alt { background: var(--bg-alt); }
 
@@ -123,13 +124,13 @@ nav a.active {
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
 }
 
 .section-head::before {
     content: "";
     width: 5px;
-    height: 26px;
+    height: 30px;
     border-radius: 3px;
     background: var(--accent);
     flex: none;
@@ -137,10 +138,9 @@ nav a.active {
 
 .section-head h2 {
     font-family: var(--font-head);
-    font-size: 1.1rem;
+    font-size: 1.32rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: -0.01em;
     margin: 0;
 }
 
@@ -149,8 +149,8 @@ nav a.active {
 .eyebrow {
     font-family: var(--font-head);
     text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--accent);
     margin: 0 0 14px;
@@ -185,7 +185,7 @@ nav a.active {
 .tags li,
 .tag {
     font-family: var(--font-body);
-    font-size: 0.83rem;
+    font-size: 0.88rem;
     font-weight: 500;
     padding: 6px 14px;
     border: 1px solid var(--border-strong);
@@ -406,8 +406,9 @@ body.js .reveal.in { opacity: 1; transform: none; }
 }
 
 @media (max-width: 760px) {
+    body { font-size: 16px; }
     .wrap { padding: 0 20px; }
-    .section { padding: 46px 0; }
+    .section { padding: 54px 0; }
     nav { padding: 9px 6px; gap: 2px; }
     nav a { font-size: 0.78rem; padding: 7px 12px; }
     .card { padding: 22px; }
