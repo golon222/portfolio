@@ -87,9 +87,12 @@
 
 .spis1 ul li { margin: 0; counter-increment: toc; }
 
+.spis1 ul li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
 .spis1 ul li a {
     display: flex;
     align-items: center;
+    height: 100%;
     gap: 12px;
     color: var(--text);
     font-family: var(--font-head);

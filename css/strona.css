@@ -459,3 +459,11 @@ body.loaded .hero .anim:nth-child(7) { transition-delay: 0.59s; }
 
 /* wygaszenie hero nie moze przykryc paska statystyk */
 .hero .wrap { will-change: transform, opacity; }
+
+
+/* pas z narzedziami pod paskiem faktow */
+.marquee { margin-top: 64px; }
+
+@media (max-width: 620px) {
+    .marquee { margin-top: 40px; }
+}

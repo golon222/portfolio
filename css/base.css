@@ -422,3 +422,191 @@ body.js .reveal.in { opacity: 1; transform: none; }
     body.js .reveal { opacity: 1; transform: none; transition: none; }
     *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.01s !important; }
 }
+
+/* ==========================================================================
+   Warstwa immersyjna
+   Wszystko ponizej animuje wylacznie transform i opacity, wiec przegladarka
+   nie przelicza ukladu strony. Bez JavaScriptu nic z tego nie ukrywa tresci.
+   ========================================================================== */
+
+/* ---------- ziarno na calej stronie ---------- */
+
+#grain {
+    position: fixed;
+    inset: 0;
+    z-index: 95;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+}
+
+/* ---------- kursor ---------- */
+
+#cur, #curRing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.25s ease, height 0.25s ease, margin 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+#cur {
+    width: 7px;
+    height: 7px;
+    margin: -3.5px 0 0 -3.5px;
+    background: var(--accent);
+}
+
+#curRing {
+    width: 36px;
+    height: 36px;
+    margin: -18px 0 0 -18px;
+    border: 1px solid var(--accent);
+}
+
+body.cur-on #cur, body.cur-on #curRing { opacity: 1; }
+
+body.cur-hot #curRing {
+    width: 62px;
+    height: 62px;
+    margin: -31px 0 0 -31px;
+    background: var(--accent-soft);
+    border-color: var(--accent);
+}
+
+body.cur-hot #cur { opacity: 0; }
+
+/* na ciemnych pasmach kursor rozjasniamy */
+body.cur-dark #cur { background: var(--accent-light); }
+body.cur-dark #curRing { border-color: var(--accent-light); }
+
+/* ---------- przejscie miedzy podstronami ---------- */
+
+#wipe {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--dark);
+    pointer-events: none;
+    transform: translate3d(0, 100%, 0);
+    transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#wipe.in { transform: translate3d(0, 0, 0); }
+#wipe.out { transform: translate3d(0, -100%, 0); }
+
+/* ---------- odslanianie tekstu slowo po slowie ---------- */
+
+.sp-w {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.sp-i {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-on .sp-i { transform: none; }
+
+/* ---------- linia w naglowku sekcji rysuje sie przy wejsciu ---------- */
+
+body.js .section-head .rule {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+body.js .section-head.in .rule { transform: scaleX(1); }
+
+/* ---------- przewijajacy sie pas z narzedziami ---------- */
+
+.marquee {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    padding: 18px 0;
+    display: flex;
+}
+
+.marquee::before, .marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee::before { left: 0; background: linear-gradient(90deg, var(--surface), transparent); }
+.marquee::after { right: 0; background: linear-gradient(270deg, var(--surface), transparent); }
+
+.marquee ul {
+    display: flex;
+    align-items: center;
+    gap: 46px;
+    margin: 0;
+    padding: 0 23px;
+    list-style: none;
+    flex: none;
+    animation: slide 34s linear infinite;
+}
+
+.marquee:hover ul { animation-play-state: paused; }
+
+.marquee li {
+    font-family: var(--font-head);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.marquee li::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.55;
+}
+
+@keyframes slide { to { transform: translate3d(-100%, 0, 0); } }
+
+/* ---------- przyciski przyciagane kursorem ---------- */
+
+.btn { will-change: auto; }
+
+@media (max-width: 760px) {
+    /* mieszanie warstw na calym ekranie jest najdrozsze na telefonach,
+       a ziarna prawie nie widac, wiec tam go nie wlaczamy */
+    #grain { display: none; }
+    .marquee ul { gap: 30px; animation-duration: 26s; }
+    .marquee li { font-size: 0.9rem; }
+    .marquee::before, .marquee::after { width: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #grain, #cur, #curRing { display: none; }
+    #wipe { display: none; }
+    .sp-i { transform: none; transition: none; }
+    body.js .section-head .rule { transform: none; transition: none; }
+    .marquee ul { animation: none; }
+}
+
+/* urzadzenia dotykowe nie dostaja kursora */
+@media (hover: none) {
+    #cur, #curRing { display: none; }
+}
