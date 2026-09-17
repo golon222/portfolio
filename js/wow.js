@@ -279,11 +279,13 @@
     }
 
     /* ======================================================================
-       Staz liczony od podanej daty
+       Staz liczony z okresow zatrudnienia
 
-       Element z atrybutem data-since dostaje tekst w postaci "2 lata
-       i 3 miesiace", a data startu przenosi sie do podpisu. Bez JavaScriptu
-       w elemencie zostaje sama data, wiec nic sie nie przedawnia.
+       Atrybut data-periods zawiera liste zakresow "poczatek:koniec"
+       rozdzielonych przecinkiem, pusty koniec oznacza trwajacy nadal.
+       Sumowane sa tylko dni faktycznie przepracowane, wiec przerwa miedzy
+       posadami nie jest doliczana. Bez JavaScriptu w elemencie zostaje
+       sama data poczatku, wiec zapasowa tresc nigdy sie nie przedawnia.
        ====================================================================== */
 
     /* polska odmiana liczebnikow: 1 rok, 2 lata, 5 lat, 12 lat, 22 lata */
@@ -294,25 +296,64 @@
         return wiele;
     }
 
-    Array.prototype.forEach.call(document.querySelectorAll('[data-since]'), function (el) {
-        var parts = (el.getAttribute('data-since') || '').split('-');
-        if (parts.length !== 3) return;
+    var DZIEN = 86400000;
 
-        var rok = parseInt(parts[0], 10);
-        var mies = parseInt(parts[1], 10) - 1;
-        var dzien = parseInt(parts[2], 10);
-        if (isNaN(rok) || isNaN(mies) || isNaN(dzien)) return;
+    /* Roznica dwoch dat w pelnych miesiacach kalendarzowych plus reszta dni.
+       Liczenie przez srednia dlugosc miesiaca zanizalo wynik o caly miesiac
+       przy okraglych rocznicach, dlatego liczymy po kalendarzu. */
+    function roznica(od, doD) {
+        var m = (doD.getFullYear() - od.getFullYear()) * 12 + (doD.getMonth() - od.getMonth());
+        var d = doD.getDate() - od.getDate();
 
+        if (d < 0) {
+            m--;
+            /* ile dni uplynelo od ostatniego dnia o tym samym numerze */
+            var dniPoprzedniego = new Date(doD.getFullYear(), doD.getMonth(), 0).getDate();
+            var dzien = Math.min(od.getDate(), dniPoprzedniego);
+            var poprzedni = new Date(doD.getFullYear(), doD.getMonth() - 1, dzien, 12);
+            d = Math.round((doD - poprzedni) / DZIEN);
+        }
+
+        return { m: m, d: d };
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-periods]'), function (el) {
         var teraz = new Date();
-        var m = (teraz.getFullYear() - rok) * 12 + (teraz.getMonth() - mies);
-        if (teraz.getDate() < dzien) m--;      /* niepelny miesiac sie nie liczy */
-        if (m < 0) m = 0;
+        teraz.setHours(12, 0, 0, 0);
 
-        var lat = Math.floor(m / 12);
-        var miesiecy = m % 12;
+        var miesiaceRazem = 0;
+        var dniRazem = 0;
+        var pierwszy = null;
+        var ok = true;
+
+        el.getAttribute('data-periods').split(',').forEach(function (zakres) {
+            var kv = zakres.split(':');
+            var od = new Date(kv[0] + 'T12:00:00');
+            if (isNaN(od)) { ok = false; return; }
+            if (!pierwszy) pierwszy = kv[0];
+
+            var doD = (kv[1] && kv[1].length) ? new Date(kv[1] + 'T12:00:00') : teraz;
+            if (isNaN(doD)) { ok = false; return; }
+            if (doD > teraz) doD = teraz;          /* przyszlosc sie nie liczy */
+            if (doD <= od) return;                 /* okres jeszcze sie nie zaczal */
+
+            var r = roznica(od, doD);
+            miesiaceRazem += r.m;
+            dniRazem += r.d;
+        });
+
+        if (!ok) return;
+
+        /* reszty dni z roznych okresow skladaja sie na pelne miesiace */
+        while (dniRazem >= 30) { miesiaceRazem++; dniRazem -= 30; }
+
+        if (miesiaceRazem <= 0 && dniRazem <= 0) return;
+
+        var lat = Math.floor(miesiaceRazem / 12);
+        var miesiecy = miesiaceRazem % 12;
         var txt;
 
-        if (m === 0) {
+        if (miesiaceRazem === 0) {
             txt = 'niespełna miesiąc';
         } else if (lat === 0) {
             txt = miesiecy + ' ' + odmiana(miesiecy, 'miesiąc', 'miesiące', 'miesięcy');
@@ -325,11 +366,10 @@
 
         el.textContent = txt;
 
-        /* data startu ladnie schodzi do podpisu, zeby nadal byla widoczna */
         var cap = el.parentElement && el.parentElement.querySelector('.cap');
-        if (cap) {
-            var mm = parts[1].length === 2 ? parts[1] : '0' + parts[1];
-            cap.textContent = 'od ' + mm + '.' + parts[0] + ', ' + cap.textContent;
+        if (cap && pierwszy) {
+            var cz = pierwszy.split('-');
+            cap.textContent = 'od ' + cz[1] + '.' + cz[0] + ', ' + cap.textContent;
         }
     });
 
