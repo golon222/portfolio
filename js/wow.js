@@ -279,6 +279,61 @@
     }
 
     /* ======================================================================
+       Staz liczony od podanej daty
+
+       Element z atrybutem data-since dostaje tekst w postaci "2 lata
+       i 3 miesiace", a data startu przenosi sie do podpisu. Bez JavaScriptu
+       w elemencie zostaje sama data, wiec nic sie nie przedawnia.
+       ====================================================================== */
+
+    /* polska odmiana liczebnikow: 1 rok, 2 lata, 5 lat, 12 lat, 22 lata */
+    function odmiana(n, jeden, kilka, wiele) {
+        if (n === 1) return jeden;
+        var r10 = n % 10, r100 = n % 100;
+        if (r10 >= 2 && r10 <= 4 && (r100 < 12 || r100 > 14)) return kilka;
+        return wiele;
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-since]'), function (el) {
+        var parts = (el.getAttribute('data-since') || '').split('-');
+        if (parts.length !== 3) return;
+
+        var rok = parseInt(parts[0], 10);
+        var mies = parseInt(parts[1], 10) - 1;
+        var dzien = parseInt(parts[2], 10);
+        if (isNaN(rok) || isNaN(mies) || isNaN(dzien)) return;
+
+        var teraz = new Date();
+        var m = (teraz.getFullYear() - rok) * 12 + (teraz.getMonth() - mies);
+        if (teraz.getDate() < dzien) m--;      /* niepelny miesiac sie nie liczy */
+        if (m < 0) m = 0;
+
+        var lat = Math.floor(m / 12);
+        var miesiecy = m % 12;
+        var txt;
+
+        if (m === 0) {
+            txt = 'niespełna miesiąc';
+        } else if (lat === 0) {
+            txt = miesiecy + ' ' + odmiana(miesiecy, 'miesiąc', 'miesiące', 'miesięcy');
+        } else if (miesiecy === 0) {
+            txt = lat + ' ' + odmiana(lat, 'rok', 'lata', 'lat');
+        } else {
+            txt = lat + ' ' + odmiana(lat, 'rok', 'lata', 'lat') +
+                  ' i ' + miesiecy + ' ' + odmiana(miesiecy, 'miesiąc', 'miesiące', 'miesięcy');
+        }
+
+        el.textContent = txt;
+
+        /* data startu ladnie schodzi do podpisu, zeby nadal byla widoczna */
+        var cap = el.parentElement && el.parentElement.querySelector('.cap');
+        if (cap) {
+            var mm = parts[1].length === 2 ? parts[1] : '0' + parts[1];
+            cap.textContent = 'od ' + mm + '.' + parts[0] + ', ' + cap.textContent;
+        }
+    });
+
+    /* ======================================================================
        Pochylanie kart i poswiata pod kursorem
        ====================================================================== */
 
