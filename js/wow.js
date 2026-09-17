@@ -341,7 +341,7 @@
     });
 
     /* ======================================================================
-       Ziarno i kursor
+       Ziarno
        ====================================================================== */
 
     var hoverable = window.matchMedia('(hover: hover)').matches;
@@ -350,70 +350,6 @@
         var grain = document.createElement('div');
         grain.id = 'grain';
         body.appendChild(grain);
-    }
-
-    if (!reduced && hoverable) {
-        var dot = document.createElement('div');
-        var ring = document.createElement('div');
-        dot.id = 'cur';
-        ring.id = 'curRing';
-        body.appendChild(dot);
-        body.appendChild(ring);
-
-        var tx = -100, ty = -100;   /* cel, czyli pozycja kursora */
-        var rx = -100, ry = -100;   /* pierscien dogania z opoznieniem */
-        var curRunning = false;
-
-        function curFrame() {
-            rx += (tx - rx) * 0.16;
-            ry += (ty - ry) * 0.16;
-            ring.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)';
-
-            /* gdy pierscien dogonil kursor, petla sie zatrzymuje */
-            if (Math.abs(tx - rx) < 0.3 && Math.abs(ty - ry) < 0.3) {
-                curRunning = false;
-                return;
-            }
-            requestAnimationFrame(curFrame);
-        }
-
-        function curStart() {
-            if (!curRunning) {
-                curRunning = true;
-                requestAnimationFrame(curFrame);
-            }
-        }
-
-        document.addEventListener('mousemove', function (e) {
-            tx = e.clientX;
-            ty = e.clientY;
-            dot.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0)';
-            body.classList.add('cur-on');
-
-            /* na ciemnych pasmach kursor zmienia kolor */
-            var dark = false;
-            var el = e.target;
-            while (el && el !== body) {
-                if (el.classList && (el.classList.contains('hero') ||
-                    el.classList.contains('page-head') ||
-                    el.classList.contains('closing') ||
-                    el.tagName === 'FOOTER')) { dark = true; break; }
-                el = el.parentElement;
-            }
-            body.classList.toggle('cur-dark', dark);
-
-            curStart();
-        }, { passive: true });
-
-        document.addEventListener('mouseleave', function () {
-            body.classList.remove('cur-on');
-        });
-
-        /* pierscien rosnie nad elementami interaktywnymi */
-        document.addEventListener('mouseover', function (e) {
-            var hot = e.target.closest('a, button, .stack-tile, .contact-card, [data-tilt]');
-            body.classList.toggle('cur-hot', !!hot);
-        }, { passive: true });
     }
 
     /* ======================================================================
@@ -510,23 +446,31 @@
 
     /* ======================================================================
        Przejscie miedzy podstronami
+
+       Wychodzac: tresc gasnie i unosi sie, powloka w kolorze tla przenika,
+       a miedziany pasek u gory przeciaga sie do konca. Wchodzac: tresc
+       osiada z dolu. Bez twardej zaslony, zeby zmiana byla spokojna.
        ====================================================================== */
 
     if (!reduced) {
-        var wipe = document.createElement('div');
-        wipe.id = 'wipe';
-        wipe.className = 'in';
-        body.appendChild(wipe);
+        var veil = document.createElement('div');
+        veil.id = 'veil';
+        body.appendChild(veil);
 
-        /* po wczytaniu zasona zjezdza w gore i odslania strone */
+        /* wejscie: klasa zdejmowana po pierwszej klatce, wiec tresc osiada */
+        body.classList.add('entering');
         requestAnimationFrame(function () {
-            requestAnimationFrame(function () { wipe.className = 'out'; });
+            requestAnimationFrame(function () { body.classList.remove('entering'); });
         });
 
+        var leaving = false;
+
         document.addEventListener('click', function (e) {
+            if (leaving) return;
+
             var a = e.target.closest('a');
             if (!a) return;
-            if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
             if (a.target === '_blank' || a.hasAttribute('download')) return;
 
             var href = a.getAttribute('href') || '';
@@ -535,13 +479,44 @@
             var url;
             try { url = new URL(a.href); } catch (err) { return; }
             if (url.origin !== location.origin) return;
-            if (url.pathname === location.pathname && url.hash) return;
+            if (url.hash && url.pathname === location.pathname) return;
+            if (url.href === location.href) return;
 
             e.preventDefault();
-            wipe.className = 'in';
+            leaving = true;
 
-            /* nawigacja i tak nastapi, nawet gdyby animacja nie doszla do konca */
-            setTimeout(function () { location.href = a.href; }, 480);
+            var target = a.href;
+            var went = false;
+
+            function go() {
+                if (went) return;
+                went = true;
+                location.href = target;
+            }
+
+            body.classList.add('leaving');
+            veil.classList.add('on');
+            if (progress) progress.classList.add('sweep');
+
+            /* Czekamy az powloka naprawde sie domknie, zamiast odliczac staly
+               czas. Na wolniejszym sprzecie klatki sa rzadsze, wiec sztywny
+               zegar potrafilby przerwac wygaszanie w polowie. */
+            veil.addEventListener('transitionend', function (ev) {
+                if (ev.propertyName === 'opacity') go();
+            });
+
+            /* bezpiecznik: nawigacja nastapi nawet gdyby zdarzenie nie przyszlo */
+            setTimeout(go, 700);
+        });
+
+        /* powrot przyciskiem wstecz z pamieci przegladarki nie moze
+           zostawic strony wygaszonej */
+        window.addEventListener('pageshow', function (ev) {
+            if (!ev.persisted) return;
+            leaving = false;
+            body.classList.remove('leaving');
+            veil.classList.remove('on');
+            if (progress) { progress.classList.remove('sweep'); progress.style.width = '0'; }
         });
     }
 
