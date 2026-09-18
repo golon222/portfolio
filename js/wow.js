@@ -378,7 +378,20 @@
        ====================================================================== */
 
     if (!reduced && window.matchMedia('(hover: hover)').matches) {
-        Array.prototype.forEach.call(document.querySelectorAll('[data-tilt]'), function (el) {
+        /* w trakcie przeciagania mysza uzytkownik zaznacza tekst, a ruszajaca
+           sie karta psulaby to zaznaczenie */
+        var przeciaganie = false;
+        var pochylane = document.querySelectorAll('[data-tilt]');
+
+        document.addEventListener('mousedown', function () {
+            przeciaganie = true;
+            /* karta wraca na plasko, zeby zaznaczany tekst nie byl skosny */
+            Array.prototype.forEach.call(pochylane, function (el) { el.style.transform = ''; });
+        }, { passive: true });
+
+        document.addEventListener('mouseup', function () { przeciaganie = false; }, { passive: true });
+
+        Array.prototype.forEach.call(pochylane, function (el) {
             var queued = false, lx = 0, ly = 0;
 
             function apply() {
@@ -394,6 +407,7 @@
             });
 
             el.addEventListener('mousemove', function (e) {
+                if (przeciaganie) return;
                 var b = el.getBoundingClientRect();
                 lx = (e.clientX - b.left) / b.width;
                 ly = (e.clientY - b.top) / b.height;
@@ -456,6 +470,7 @@
 
         var split = function (el) {
             var out = [];
+            el.setAttribute('data-orig', el.innerHTML);
 
             Array.prototype.forEach.call(el.childNodes, function (node) {
                 if (node.nodeType === 3) {
@@ -496,6 +511,19 @@
                 });
                 el.classList.add('sp-on');
                 sio.unobserve(el);
+
+                /* Po animacji zdejmujemy maski i wracamy do zwyklego tekstu.
+                   Maska ma overflow hidden, ktory przycina podswietlenie
+                   zaznaczenia i utrudnia zlapanie slowa kursorem. */
+                (function (node, ile) {
+                    setTimeout(function () {
+                        var orig = node.getAttribute('data-orig');
+                        if (orig === null) return;
+                        node.innerHTML = orig;
+                        node.removeAttribute('data-orig');
+                        node.classList.remove('sp-on');
+                    }, ile * 55 + 1100);
+                })(el, parts.length);
             }
         }, { threshold: 0.2 });
 
@@ -510,7 +538,16 @@
             Array.prototype.forEach.call(heads, function (el) {
                 if (el.classList.contains('sp-on')) return;
                 var r = el.getBoundingClientRect();
-                if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('sp-on');
+                if (r.top >= window.innerHeight || r.bottom <= 0) return;
+                el.classList.add('sp-on');
+                var orig = el.getAttribute('data-orig');
+                if (orig !== null) {
+                    setTimeout(function () {
+                        el.innerHTML = orig;
+                        el.removeAttribute('data-orig');
+                        el.classList.remove('sp-on');
+                    }, 1400);
+                }
             });
         }, 2500);
     }

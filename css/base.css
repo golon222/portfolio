@@ -597,3 +597,47 @@ body.js .section-head.in .rule { transform: scaleX(1); }
     .marquee ul { animation: none; }
 }
 
+
+/* ==========================================================================
+   Zaznaczanie i kopiowanie tekstu
+   Tresc ma byc swobodnie zaznaczalna, a elementy ozdobne nie moga trafiac
+   do schowka. Pas z narzedziami ma zdublowana liste, wiec bez tego kazda
+   nazwa kopiowalaby sie dwa razy.
+   ========================================================================== */
+
+body {
+    -webkit-user-select: text;
+    user-select: text;
+    -webkit-touch-callout: default;
+}
+
+/* elementy ozdobne i sterujace poza zaznaczeniem */
+.marquee,
+#heroCanvas,
+#grain,
+#veil,
+#progress,
+#scrollToTop,
+.hero .role .cursor,
+.badge .dot,
+.contact-row .copy,
+.close {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* wygodniejsze zaznaczanie dluzszych akapitow na dotyku */
+.bio p,
+.aim-box p,
+.timeline .duties li,
+.pillars li,
+.job-card p.desc,
+.spis p1,
+.spis li {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+/* czytelne podswietlenie zaznaczenia takze na ciemnych pasmach */
+::selection { background: var(--accent); color: #fff; }
+::-moz-selection { background: var(--accent); color: #fff; }
