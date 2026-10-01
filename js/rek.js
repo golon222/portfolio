@@ -1,34 +1,50 @@
-        const modal = document.getElementById('myModal');
-        const btn1 = document.getElementById('openModalBtn1');
-        const btn2 = document.getElementById('openModalBtn2');
-        const btn3 = document.getElementById('openModalBtn3');
-        const closeBtn = document.getElementsByClassName('close')[0];
-        const modalContent = document.getElementById('modalContent');
+/* ==========================================================================
+   Jgolon.pl - podglad dokumentow w oknie modalnym
 
-        btn1.onclick = function(event) {
-            event.preventDefault();
-            modalContent.innerHTML = '<img src="/jpg/Scan12.10.2024105751_001.jpg" alt="Preferencje" style="max-width: 100%;">';
-            modal.style.display = 'flex';
-        };
+   Kazdy odnosnik z atrybutem data-podglad otwiera wskazany obraz, wiec
+   dolozenie kolejnego dyplomu nie wymaga zmian w tym pliku.
+   ========================================================================== */
 
-        btn2.onclick = function(event) {
-            event.preventDefault();
-            modalContent.innerHTML = '<img src="/jpg/Cer1.jpg" alt="Certyfikat" style="max-width: 100%;">';
-            modal.style.display = 'flex';
-        };
+(function () {
+    'use strict';
 
-        btn3.onclick = function(event) {
-            event.preventDefault();
-            modalContent.innerHTML = '<img src="/jpg/Cer2.jpg" alt="Certyfikat" style="max-width: 100%;">';
-            modal.style.display = 'flex';
-        };
+    var modal = document.getElementById('myModal');
+    var tresc = document.getElementById('modalContent');
+    if (!modal || !tresc) return;
 
-        closeBtn.onclick = function() {
-            modal.style.display = 'none';
-        };
+    var zamykacz = document.querySelector('.close');
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        };
+    function otworz(src, opis) {
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = opis || 'Podgląd dokumentu';
+
+        tresc.innerHTML = '';
+        tresc.appendChild(img);
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';   /* tlo nie przewija sie pod oknem */
+    }
+
+    function zamknij() {
+        modal.style.display = 'none';
+        tresc.innerHTML = '';
+        document.body.style.overflow = '';
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-podglad]'), function (el) {
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            otworz(el.getAttribute('data-podglad'), el.getAttribute('data-opis'));
+        });
+    });
+
+    if (zamykacz) zamykacz.addEventListener('click', zamknij);
+
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) zamknij();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') zamknij();
+    });
+})();
