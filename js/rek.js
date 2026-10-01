@@ -20,7 +20,18 @@
         img.alt = opis || 'Podgląd dokumentu';
 
         tresc.innerHTML = '';
+
+        /* Podpis idzie nad dokumentem. Pod spodem wypadalby poza widoczny
+           obszar okna i trzeba byloby do niego przewijac. */
+        if (opis) {
+            var podpis = document.createElement('p');
+            podpis.className = 'modal-podpis';
+            podpis.textContent = opis;
+            tresc.appendChild(podpis);
+        }
+
         tresc.appendChild(img);
+
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';   /* tlo nie przewija sie pod oknem */
     }
