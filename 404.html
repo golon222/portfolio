@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nie znaleziono strony | Jakub Golon</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#2F363B">
+    <link rel="icon" type="image/png" href="/jpg/ikona.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css?v=20261001d">
+    <style>
+        .pusto {
+            background: var(--dark);
+            color: var(--on-dark);
+            flex: 1 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 90px 24px;
+        }
+        .pusto .kod {
+            font-family: var(--font-head);
+            font-size: clamp(4rem, 16vw, 8rem);
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent-light);
+            letter-spacing: -0.04em;
+        }
+        .pusto h1 { font-family: var(--font-head); font-size: clamp(1.4rem, 4vw, 2rem); margin: 18px 0 12px; }
+        .pusto p { color: var(--on-dark-muted); margin: 0 auto 30px; max-width: 46ch; }
+        .pusto .cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#tresc">Przejdź do treści</a>
+
+    <nav>
+        <a href="/">Strona główna</a>
+        <a href="/O_mnie/">O mnie</a>
+        <a href="/Projekty/">Projekty</a>
+        <a href="/Kontakt/">Kontakt</a>
+    </nav>
+
+    <main id="tresc" class="pusto">
+        <div class="wrap">
+            <div class="kod">404</div>
+            <h1>Tej strony tu nie ma</h1>
+            <p>Adres mógł się zmienić albo zawiera literówkę. Stąd wrócisz na stronę główną.</p>
+            <div class="cta">
+                <a class="btn" href="/">Strona główna</a>
+                <a class="btn btn-light" href="/Kontakt/">Kontakt</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Jakub Golon. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+</body>
+</html>

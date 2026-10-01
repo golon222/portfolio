@@ -658,3 +658,31 @@ body {
     color: var(--text-muted);
     text-align: left;
 }
+
+/* przeskok do tresci dla osob korzystajacych z klawiatury */
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 300;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 11px 20px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus { top: 0; color: #fff; }
+
+/* wyrazniejszy obrys fokusu niz domyslny, w kolorze akcentu */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
