@@ -12,6 +12,9 @@
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var body = document.body;
 
+    /* wersja jezykowa brana z atrybutu lang, bo /en/ to osobne podstrony */
+    var EN = document.documentElement.lang === 'en';
+
     body.classList.add('js');
 
     /* ======================================================================
@@ -353,15 +356,19 @@
         var miesiecy = miesiaceRazem % 12;
         var txt;
 
+        function lata(n)    { return EN ? (n + (n === 1 ? ' year' : ' years'))
+                                        : (n + ' ' + odmiana(n, 'rok', 'lata', 'lat')); }
+        function miesiace(n) { return EN ? (n + (n === 1 ? ' month' : ' months'))
+                                        : (n + ' ' + odmiana(n, 'miesiąc', 'miesiące', 'miesięcy')); }
+
         if (miesiaceRazem === 0) {
-            txt = 'niespełna miesiąc';
+            txt = EN ? 'less than a month' : 'niespełna miesiąc';
         } else if (lat === 0) {
-            txt = miesiecy + ' ' + odmiana(miesiecy, 'miesiąc', 'miesiące', 'miesięcy');
+            txt = miesiace(miesiecy);
         } else if (miesiecy === 0) {
-            txt = lat + ' ' + odmiana(lat, 'rok', 'lata', 'lat');
+            txt = lata(lat);
         } else {
-            txt = lat + ' ' + odmiana(lat, 'rok', 'lata', 'lat') +
-                  ' i ' + miesiecy + ' ' + odmiana(miesiecy, 'miesiąc', 'miesiące', 'miesięcy');
+            txt = lata(lat) + (EN ? ' and ' : ' i ') + miesiace(miesiecy);
         }
 
         el.textContent = txt;
@@ -369,7 +376,7 @@
         var cap = el.parentElement && el.parentElement.querySelector('.cap');
         if (cap && pierwszy) {
             var cz = pierwszy.split('-');
-            cap.textContent = 'od ' + cz[1] + '.' + cz[0] + ', ' + cap.textContent;
+            cap.textContent = (EN ? 'since ' : 'od ') + cz[1] + '.' + cz[0] + ', ' + cap.textContent;
         }
     });
 
@@ -442,9 +449,9 @@
             e.preventDefault();
             var val = el.getAttribute('data-copy');
             navigator.clipboard.writeText(val).then(function () {
-                showToast('Skopiowano: ' + val);
+                showToast((EN ? 'Copied: ' : 'Skopiowano: ') + val);
             }, function () {
-                showToast('Nie udalo sie skopiowac');
+                showToast(EN ? 'Could not copy' : 'Nie udało się skopiować');
             });
         });
     });

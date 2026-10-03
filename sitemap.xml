@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://jgolon.pl/</loc><lastmod>2026-10-01</lastmod><priority>1.0</priority></url>
-  <url><loc>https://jgolon.pl/O_mnie/</loc><lastmod>2026-10-01</lastmod><priority>0.9</priority></url>
-  <url><loc>https://jgolon.pl/Projekty/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
-  <url><loc>https://jgolon.pl/Kontakt/</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://jgolon.pl/</loc><lastmod>2026-10-03</lastmod><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jgolon.pl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jgolon.pl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jgolon.pl/"/></url>
+  <url><loc>https://jgolon.pl/O_mnie/</loc><lastmod>2026-10-03</lastmod><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jgolon.pl/O_mnie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jgolon.pl/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jgolon.pl/O_mnie/"/></url>
+  <url><loc>https://jgolon.pl/Projekty/</loc><lastmod>2026-10-03</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jgolon.pl/Projekty/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jgolon.pl/en/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jgolon.pl/Projekty/"/></url>
+  <url><loc>https://jgolon.pl/Kontakt/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jgolon.pl/Kontakt/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jgolon.pl/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jgolon.pl/Kontakt/"/></url>
+  <url><loc>https://jgolon.pl/en/</loc><lastmod>2026-10-03</lastmod><priority>0.9</priority></url>
+  <url><loc>https://jgolon.pl/en/about/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://jgolon.pl/en/projects/</loc><lastmod>2026-10-03</lastmod><priority>0.6</priority></url>
+  <url><loc>https://jgolon.pl/en/contact/</loc><lastmod>2026-10-03</lastmod><priority>0.7</priority></url>
 </urlset>

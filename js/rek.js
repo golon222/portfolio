@@ -13,11 +13,12 @@
     if (!modal || !tresc) return;
 
     var zamykacz = document.querySelector('.close');
+    var EN = document.documentElement.lang === 'en';
 
     function otworz(src, opis) {
         var img = document.createElement('img');
         img.src = src;
-        img.alt = opis || 'Podgląd dokumentu';
+        img.alt = opis || (EN ? 'Document preview' : 'Podgląd dokumentu');
 
         tresc.innerHTML = '';
 
